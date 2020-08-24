@@ -1,0 +1,23 @@
+#rofi
+super + o
+  ./Documents/scripts/rofi_dwm.sh
+
+#screenshot
+ctrl + shift + g
+  gscreenshot
+
+#Caprine
+ctrl + shift + c
+  caprine
+
+#Discord
+ctrl + shift +d
+  discord
+
+#Volume Up
+ctrl + shift + a
+  pactl set-sink-volume @DEFAULT_SINK@ +5% && kill -SIGUSR1 $(pgrep dwm_status.py)
+
+#Volume Down
+ctrl + shift + s
+  pactl set-sink-volume @DEFAULT_SINK@ -5% && kill -SIGUSR1 $(pgrep dwm_status.py)
