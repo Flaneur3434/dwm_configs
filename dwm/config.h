@@ -1,4 +1,4 @@
-
+#include "fibonacci.c"
 #include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
@@ -48,6 +48,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "(@)",      spiral },
+	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -98,6 +100,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ ControlMask,                  XK_r,      setlayout,      {.v = &layouts[3]} },
+	{ ControlMask|ShiftMask,        XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
