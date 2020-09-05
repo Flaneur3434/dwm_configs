@@ -52,21 +52,20 @@ sxhkd &
 
 #dwm status bar
 
-feh --bg-scale ~/Pictures/Wallpapers/random/black.jpg &
+feh --bg-scale ~/Pictures/Wallpapers/art/christrainChildren.jpg &
 xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
-start-pulseaudio-x11 &
-compton --config ~/.config/compton.conf &
-# /home/ken_nc/Downloads/dwm-status/dwm_status.py &
+# start-pulseaudio-x11 &
+picom &
 slstatus &
 
-#ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx &
+ibus
+ export GTK_IM_MODULE=ibus
+ export XMODIFIERS=@im=ibus
+ export QT_IM_MODULE=ibus
+ ibus-daemon -drx &
 # while true; do
-#   /usr/local/bin/dwm 2> /dev/null
-# done
+#    /usr/local/bin/dwm 2> /dev/null
+#  done
 
 exec dwm
 
