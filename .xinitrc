@@ -57,6 +57,7 @@ xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 
 # start-pulseaudio-x11 &
 picom &
 slstatus &
+flameshot &
 
 ibus
  export GTK_IM_MODULE=ibus
