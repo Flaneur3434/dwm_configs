@@ -52,12 +52,13 @@ sxhkd &
 
 #dwm status bar
 
-feh --bg-scale ~/Pictures/Wallpapers/art/christrainChildren.jpg &
+feh --bg-scale ~/Pictures/Wallpapers/nature/greenHill.jpg &
 xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
-# start-pulseaudio-x11 &
+start-pulseaudio-x11 &
 picom &
 slstatus &
 flameshot &
+nm-applet &
 
 ibus
  export GTK_IM_MODULE=ibus
@@ -67,6 +68,10 @@ ibus
 # while true; do
 #    /usr/local/bin/dwm 2> /dev/null
 #  done
+
+xset s off # Disable screen saver blinking
+xset -dpms # Turns on display power management signaling (+dpms to turn on)
+wmname LG3d #android studio
 
 exec dwm
 
