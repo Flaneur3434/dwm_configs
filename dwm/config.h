@@ -5,7 +5,7 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
+static const unsigned int minwsz    = 10;       /* Minimal heigt of a client for smfact */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -13,18 +13,24 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int statmonval         = 0;        /*Status Bar stays on the top screen*/
-static const char *fonts[]          = { "SourceCodePro:size=11" };
+static const char *fonts[]          = { "/usr/local/plan9/font/lucm/unicode.9.font:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_cyan1[]       = "#006688";
 static const char col_cyan2[]        = "#005577";
+static const char col_black[]       = "#1d2021";
+static const char col_yellow1[]       = "#d79921";
+static const char col_yellow2[]       = "#fabd2f";
+static const char col_white[]        = "#ebdbb2";
+
 static const char *colors[][3]      = {
               /* fontcolor  taskbar    border */  
-[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-[SchemeSel]  = { col_gray3, col_cyan2,  col_cyan1  },
+[SchemeNorm] = { col_black, col_yellow1, col_gray2 },
+[SchemeSel]  = { col_white, col_black,  col_yellow1  },
 };
+
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
