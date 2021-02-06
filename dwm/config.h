@@ -15,20 +15,18 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int statmonval         = 0;        /*Status Bar stays on the top screen*/
 static const char *fonts[]          = { "/usr/local/plan9/font/lucm/unicode.9.font:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_cyan1[]       = "#006688";
-static const char col_cyan2[]        = "#005577";
-static const char col_black[]       = "#1d2021";
-static const char col_yellow1[]       = "#d79921";
-static const char col_yellow2[]       = "#fabd2f";
-static const char col_white[]        = "#ebdbb2";
+
+static const char normbordercolor[] = "#cccccc";
+static const char normbgcolor[]     = "#cccccc";
+static const char normfgcolor[]     = "#000000";
+static const char selbordercolor[]  = "#0047b3";
+static const char selbgcolor[]      = "#0066ff";
+static const char selfgcolor[]      = "#ffffff";
 
 static const char *colors[][3]      = {
               /* fontcolor  taskbar    border */  
-[SchemeNorm] = { col_black, col_yellow1, col_gray2 },
-[SchemeSel]  = { col_white, col_black,  col_yellow1  },
+[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+[SchemeSel]  = { selfgcolor, selbgcolor, selbordercolor  },
 };
 
 
@@ -75,9 +73,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan2, "-sf", col_gray1, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "termite", NULL };
-static const char *waterfox[]  = { "waterfox-current", NULL };
+static const char *librewolf[]  = { "librewolf", NULL };
 static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
@@ -90,7 +88,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ ControlMask|ShiftMask,        XK_e,      spawn,          {.v = emacs } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = waterfox } },
+	{ MODKEY,                       XK_b,      spawn,          {.v = librewolf } },
 	{ MODKEY|ShiftMask,             XK_R,      quit,           {.i = 23 } },
 	{ 0,            XF86XK_AudioLowerVolume,      spawn,          {.v = downvol } },
 	{ 0,            XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol} },

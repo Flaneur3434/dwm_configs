@@ -8,7 +8,8 @@ bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
 #font = Px437 IBM EGA8 12
-font =  SourceCodePro 11
+#font =  SourceCodePro 11
+#font =  creep 11
 #fullscreen = true
 #icon_name = terminal
 mouse_autohide = true
@@ -53,49 +54,52 @@ scrollback_lines = 10000
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+background = rgba(63, 63, 63, 0.8)
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
+# base16 Default(dark)
+[colors]
+
 # special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = #1d1f21
+foreground      = #d0d0d0
+foreground_bold = #d0d0d0
+cursor          = #d0d0d0
+background      = #151515
 
 # black
-color0  = #282a2e
-color8  = #373b41
+color0  = #151515
+color8  = #505050
 
 # red
-color1  = #a54242
-color9  = #cc6666
+color1  = #ac4142
+color9  = #ac4142
 
 # green
-color2  = #8c9440
-color10 = #b5bd68
+color2  = #90a959
+color10 = #90a959
 
 # yellow
-color3  = #de935f
-color11 = #f0c674
+color3  = #f4bf75
+color11 = #f4bf75
 
 # blue
-color4  = #5f819d
-color12 = #81a2be
+color4  = #6a9fb5
+color12 = #6a9fb5
 
 # magenta
-color5  = #85678f
-color13 = #b294bb
+color5  = #aa759f
+color13 = #aa759f
 
 # cyan
-color6  = #5e8d87
-color14 = #8abeb7
+color6  = #75b5aa
+color14 = #75b5aa
 
 # white
-color7  = #707880
-color15 = #c5c8c6
+color7  = #d0d0d0
+color15 = #f5f5f5
 
 [hints]
 #font = Monospace 12
