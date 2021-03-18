@@ -46,7 +46,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const float smfact     = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -80,7 +80,7 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle",  NULL };
 static const char *emacs[] = { "emacs", NULL };
-
+static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,6 +88,7 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_e,      spawn,          {.v = emacs } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = librewolf } },
+    { 0,                            XK_Print,  spawn,          {.v = prtscrcmd } },
 	{ MODKEY|ShiftMask,             XK_R,      quit,           {.i = 23 } },
 	{ 0,            XF86XK_AudioLowerVolume,      spawn,          {.v = downvol } },
 	{ 0,            XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol} },

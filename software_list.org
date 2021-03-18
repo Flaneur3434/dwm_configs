@@ -1,0 +1,85 @@
+#+TITLE Software List
+* Web
+** Librewolf
+*** Addons:
+      - Decentraleyes
+      - Distract Me Not
+      - Enhancer for Youtube
+      - Facebook Container
+      - Google Container
+      - HTTPS Everywhere
+      - School Loop Predictor
+      - Tabliss
+      - Timer
+      - Ublock Origin
+            + Uploaded Block List to Backup
+      - User-Agent Switcher
+      - Video Speed Controller
+      - Vimium
+** Brave
+*** Addons:
+      - None
+** Tor
+*** Addons:
+      - None
+* Programming
+** nvim
+*** NerdTree
+*** Auto-Pairs
+*** coc
+*** Airline
+*** css-color
+*** fzf
+*** vim-commentary
+*** vim-surround
+*** goyo
+*** LanguageClient-neovim
+*** utl
+*** tagbar
+*** vim-orgmode
+*** vim-SyntaxRange
+** vs-code
+** termite
+** git
+* b
+** Session-Desktop-bin
+** Caprine
+** Discord
+** croc
+** feh (for wallpaper)
+** sxiv (imageviewer)
+** ranger
+** youtube-dl
+** android-studio
+** mpv
+** zathura
+** iftop
+** bashtop
+** tty-clock
+** dwm
+** slstatus
+** bash
+** Flameshot
+** xscreensaver
+** nm-applet
+** picom
+** dunst
+** sxhkd
+** arandr
+** xbacklight
+** rofi (could be changed to dmenu)
+** spaceFM
+** SimpleScreenRecorder
+** GIMP
+** Audacious
+** calcurse
+** ibus (language input)
+** cowsay
+** paru
+** pulse-audio
+** cava
+** KeePassXC
+** bc
+** nhentai
+** rg (grep but better)
+** Android Studio
