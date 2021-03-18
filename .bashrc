@@ -1,0 +1,142 @@
+#
+# ~/.bashrc
+#
+
+#Ibus settings if you need them
+#type ibus-setup in terminal to change settings and start the daemon
+#delete the hashtags of the next lines and restart
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=dbus
+#export QT_IM_MODULE=ibus
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+export HISTCONTROL=ignoreboth:erasedups
+
+#PS1='[\u@\h \W]\$ '
+# export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[35m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
+export PS1="\[\e[37m\]\W\[\e[m\] \[\e[34m\]|\[\e[m\]  "
+
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+#ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
+
+#youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+
+#Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+#gpg
+#verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+#receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+
+#shutdown or reboot
+alias ssn="sudo shutdown now"
+alias sr="sudo reboot"
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;      
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+#create a file called .bashrc-personal and put all your personal aliases
+#in there. They will not be overwritten by skel.
+
+[[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
+
+
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/usr/local/plan9/bin"
+export PATH="$PATH:$HOME/go/bin/"
+export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
+export PATH="$PATH:$HOME/Documents/scripts/"
+
+export EDITOR='nvim'
+export VISUAL='nvim'
+alias vi=nvim
+#alias mv='mv -i'
+#alias rm='rm -i'
+alias pacman='pacman --color auto'
+alias dhelp='cat ~/Downloads/dwm/config.h'
+set -o vi
+#list
+# alias ls='ls --color=auto'
+alias ls='exa'
+alias la='exa -a -l -G --header --git'
+alias ll='ls -l'
+
+#fix obvious typo's
+alias cd..='cd ..'
+alias pdw="pwd"
+alias udpate='sudo pacman -Syyu'
+alias upate='sudo pacman -Syyu'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias pacman='pacman --color auto'
+alias dhelp='cat ~/Downloads/dwm/config.h'
+alias selfie='vlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
+alias colortest='./Downloads/color-scripts/color-scripts/colortest'
+alias get_dwm_conf='git clone https://github.com/GrapeJuiceSoda/dwm_configs.git'
+alias get_dot_file='git clone https://github.com/GrapeJuiceSoda/Dotfiles.git'
+alias running_service='systemctl list-units --type=service'
+alias logout='pkill -KILL -u ken_nc'
+alias untar="tar -xvzf"
+alias rsync='rsync -avuz'
+# rsync ~/Videos/Memes ken_nc@222.111.1.22:/volume2/backup/thinkpad_backup/Memes
+# scp volume2/backup/thinkpad_backup/Memes ken_nc@222.111.1.22:~/Videos/Memes/
+alias uname='uname -nor'
+alias iftop='sudo iftop -i wlp0s20f3'
+alias yay='paru'
+alias grep='rg'
+alias neofetch='pfetch'
+alias blog='blog.sh'
+alias clock='tty-clock -cs'
+alias gb='go build -o /home/ken_nc/go/bin/'
+alias bask='xdg-settings set default-web-browser basilisk.desktop'
+alias libw='xdg-settings set default-web-browser librewolf.desktop'
+wmname LG3D
+clear
+cat ~/Downloads/Ascii-Arts/gnu | lolcat
+echo ''
