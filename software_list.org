@@ -49,6 +49,7 @@
 ** croc
 ** feh (for wallpaper)
 ** sxiv (imageviewer)
+** Ueberzug (for ranger)
 ** ranger
 ** youtube-dl
 ** android-studio
@@ -84,3 +85,4 @@
 ** nhentai
 ** rg (grep but better)
 ** Android Studio
+** exa (replacement for ls)
