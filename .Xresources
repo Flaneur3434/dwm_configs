@@ -29,13 +29,18 @@
 *color15: #f1efee
 
 !! URXVT Settings
-URxvt.intensityStyles:	false
-URxvt.depth:		32
+/* URxvt.intensityStyles:	false */
+/* URxvt.depth:		32 */
 URxvt.font: 		xft:monospace:size=12
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
-URxvt.perl-ext-common:	default,resize-font,clipboard,matcher,keyboard-select
+URxvt.perl-ext-common:	default,resize-font,matcher,keyboard-select
+
 !! Copy and Paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 !! Matcher
 URxvt.url-launcher: /usr/bin/xdg-open
@@ -64,11 +69,3 @@ rofi.bw:		0
 rofi.opacity:		"10"
 rofi.hide-scrollbar:	true
 rofi.width:		30
-
-
-/* "#cccccc"; */
-/* "#cccccc"; */
-/* "#000000"; */
-/* "#0047b3"; */
-/* "#0066ff"; */
-/* "#ffffff"; */
