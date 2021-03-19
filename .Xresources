@@ -1,8 +1,7 @@
 *foreground: #00cc00
 *foreground_bold: #a8a19f
 *cursor: #a8a19f
-!!background      = #1b1918
-!!*background: rgba(0, 0, 0, .7)
+*background: #1b1918
 
 !! black
 *color0: #1b1918
@@ -29,20 +28,47 @@
 *color7: #a8a19f
 *color15: #f1efee
 
+!! URXVT Settings
 URxvt.intensityStyles:	false
-URxvt.background:       [70]#000000
 URxvt.depth:		32
-URxvt.font: 		xft:monospace:size=11
+URxvt.font: 		xft:monospace:size=12
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
-URxvt.perl-ext-common:	default,matcher,resize-font
-URxvt.perl-lib:		$HOME/.config/Scripts
-URxvt.url-launcher:	/usr/bin/xdg-open
-URxvt.matcher.button:	1
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
-URxvt.boarderWidth: 0
-URxvt.internalBorder: 0
-URxvt.externalBorder: 0
+URxvt.perl-ext-common:	default,resize-font,clipboard,matcher,keyboard-select
+!! Copy and Paste
 
-URxvt.colorUL:		#4682B4
+!! Matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+
+!! Resize
+URxvt.keysym.Control-j: resize-font:smaller
+URxvt.keysym.Control-k: resize-font:bigger
+URxvt.keysym.Control-equal: resize-font:reset
+
+!! Keyboard Select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+!! Rofi Settings
+rofi.color-enabled:	true
+rofi.color-window:	#0047b3, #ffffff, #ffffff
+!!                  unselected, unselected font color, middle, select, selected font color
+rofi.color-normal:	#0047b3, #cccccc, #0047b3, #0066ff, #ffffff
+rofi.color-active:	#002b37, #008ed4, #003643, #008ed4, #66c6ff
+rofi.color-urgent:	#002b37, #da4281, #003643, #008ed4, #890661
+
+rofi.fake-transparency:	true
+rofi.lines:		3
+rofi.bw:		0
+rofi.opacity:		"10"
+rofi.hide-scrollbar:	true
+rofi.width:		30
+
+
+/* "#cccccc"; */
+/* "#cccccc"; */
+/* "#000000"; */
+/* "#0047b3"; */
+/* "#0066ff"; */
+/* "#ffffff"; */
