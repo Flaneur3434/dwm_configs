@@ -40,6 +40,7 @@
 *** vim-SyntaxRange
 ** vs-code
 ** termite
+** Urxvt (need perl)
 ** git
 * b
 ** Session-Desktop-bin
