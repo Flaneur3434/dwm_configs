@@ -86,6 +86,14 @@ ex ()
 
 [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
 
+backup ()
+{
+    read -e -p "src: " src_dir
+    read -e -p "dest: " dest_dir
+    rsync -avuz $src_dir ken_nc@192.168.1.47:$dest_dir
+    # echo $src_dir $dest_dir
+}
+
 
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/plan9/bin"
@@ -116,19 +124,27 @@ alias upate='sudo pacman -Syyu'
 ## Colorize the grep command output for ease of use (good for log files)##
 alias pacman='pacman --color auto'
 alias dhelp='cat ~/Downloads/dwm/config.h'
+alias ftc_code='cd Documents/programming/Ultimate-Goal/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
+alias ftc='cd Documents/programming/Ultimate-Goal/'
+alias website='cd Documents/programming/html/school_website'
 alias selfie='vlc v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"'
 alias colortest='./Downloads/color-scripts/color-scripts/colortest'
 alias get_dwm_conf='git clone https://github.com/GrapeJuiceSoda/dwm_configs.git'
 alias get_dot_file='git clone https://github.com/GrapeJuiceSoda/Dotfiles.git'
 alias running_service='systemctl list-units --type=service'
+alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
 alias logout='pkill -KILL -u ken_nc'
 alias untar="tar -xvzf"
-alias rsync='rsync -avuz'
-# rsync ~/Videos/Memes ken_nc@222.111.1.22:/volume2/backup/thinkpad_backup/Memes
-# scp volume2/backup/thinkpad_backup/Memes ken_nc@222.111.1.22:~/Videos/Memes/
+alias himitsu="vi ~/Downloads/importantDocuments/.password; keepassxc"
+alias diskstation='ssh ken_nc@192.168.1.47 -p22'
+# alias rsync='rsync -avuz'
+# rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
+# scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
 alias uname='uname -nor'
 alias iftop='sudo iftop -i wlp0s20f3'
 alias yay='paru'
+alias nb='newsboat'
+#alias cat='bat'
 alias grep='rg'
 alias neofetch='pfetch'
 alias blog='blog.sh'
@@ -136,7 +152,9 @@ alias clock='tty-clock -cs'
 alias gb='go build -o /home/ken_nc/go/bin/'
 alias bask='xdg-settings set default-web-browser basilisk.desktop'
 alias libw='xdg-settings set default-web-browser librewolf.desktop'
+alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 wmname LG3D
+#./Downloads/color-scripts/color-scripts/elfman
 clear
 cat ~/Downloads/Ascii-Arts/gnu | lolcat
 echo ''

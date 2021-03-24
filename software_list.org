@@ -86,3 +86,4 @@
 ** rg (grep but better)
 ** Android Studio
 ** exa (replacement for ls)
+** Clamav (virus detection)
