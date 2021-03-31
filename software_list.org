@@ -16,6 +16,7 @@
       - User-Agent Switcher
       - Video Speed Controller
       - Vimium
+      - ClearURL	
 ** Brave
 *** Addons:
       - None
@@ -40,7 +41,7 @@
 *** vim-SyntaxRange
 ** vs-code
 ** termite
-** Urxvt (need perl)
+** urxvt
 ** git
 * b
 ** Session-Desktop-bin
@@ -49,7 +50,6 @@
 ** croc
 ** feh (for wallpaper)
 ** sxiv (imageviewer)
-** Ueberzug (for ranger)
 ** ranger
 ** youtube-dl
 ** android-studio
@@ -82,8 +82,5 @@
 ** cava
 ** KeePassXC
 ** bc
-** nhentai
 ** rg (grep but better)
 ** Android Studio
-** exa (replacement for ls)
-** Clamav (virus detection)
