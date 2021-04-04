@@ -84,3 +84,4 @@
 ** bc
 ** rg (grep but better)
 ** Android Studio
+** Ueberzug
