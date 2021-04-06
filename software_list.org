@@ -85,3 +85,5 @@
 ** rg (grep but better)
 ** Android Studio
 ** Ueberzug
+** Openssh
+** Network Manager
