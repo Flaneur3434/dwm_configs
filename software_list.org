@@ -87,3 +87,4 @@
 ** Ueberzug
 ** Openssh
 ** Network Manager
+** skippy-xd (dwm expand view)

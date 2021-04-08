@@ -1,11 +1,9 @@
 #include "fibonacci.c"
-#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int minwsz    = 10;       /* Minimal heigt of a client for smfact */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -44,7 +42,6 @@ static const Rule rules[] = {
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const float smfact     = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -55,8 +52,6 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "(@)",      spiral },
 	{ "[\\]",     dwindle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -82,9 +77,11 @@ static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "@DEFAULT_
 static const char *emacs[] = { "emacs", NULL };
 static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
 
+#include <X11/XF86keysym.h>
+#include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	/* { MODKEY,                       XK_e,      spawn,          {.v = dmenucmd } }, */
 	{ ControlMask|ShiftMask,        XK_e,      spawn,          {.v = emacs } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = librewolf } },
@@ -94,16 +91,11 @@ static Key keys[] = {
 	{ 0,            XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol} },
 	{ 0,                   XF86XK_AudioMute,      spawn,          {.v = mutevol} },
 	{ 0,                XF86XK_AudioMicMute,      spawn,          {.v = mutemic} },
-  { MODKEY|ControlMask,           XK_space,  focusmaster,    {0} },
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-  { MODKEY|ShiftMask,             XK_k,      setsmfact,      {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_j,      setsmfact,      {.f = -0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
@@ -112,14 +104,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ ControlMask|ShiftMask,        XK_f,      setlayout,      {.v = &layouts[3]} },
 	{ ControlMask|ShiftMask,        XK_r,      setlayout,      {.v = &layouts[4]} },
-  { ControlMask|ShiftMask,        XK_u,      setlayout,      {.v = &layouts[5]} },
-	{ ControlMask|ShiftMask,        XK_o,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
+	{ MODKEY,                       XK_p,      shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
