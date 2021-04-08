@@ -7,7 +7,7 @@ ctrl + shift + g
   gscreenshot
 
 #Caprine
-ctrl + shift + c
+ctrl + shift + m
   caprine
 
 #Discord
@@ -21,3 +21,14 @@ ctrl + shift + a
 #Volume Down
 ctrl + shift + s
   pactl set-sink-volume @DEFAULT_SINK@ -5% && kill -SIGUSR1 $(pgrep dwm_status.py)
+
+#Brightness
+#use xbindkeys --key to figure out keys
+XF86MonBrightnessDown
+  xbacklight -dec 10
+
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+alt + Tab
+    skippy-xd-runner --activate 
