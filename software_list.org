@@ -23,6 +23,7 @@
 ** Tor
 *** Addons:
       - None
+** Zeronet
 * Programming
 ** nvim
 *** NerdTree
