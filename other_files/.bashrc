@@ -12,11 +12,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Startx automatically
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
+
 export HISTCONTROL=ignoreboth:erasedups
 
 #PS1='[\u@\h \W]\$ '
-# export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[35m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
-export PS1="\[\e[37m\]\W\[\e[m\] \[\e[34m\]|\[\e[m\]  "
+export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[35m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
+#export PS1="\[\e[37m\]\W\[\e[m\] \[\e[34m\]|\[\e[m\]  "
 
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
@@ -88,10 +91,54 @@ ex ()
 
 backup ()
 {
-    read -e -p "src: " src_dir
-    read -e -p "dest: " dest_dir
-    rsync -avuz $src_dir ken_nc@192.168.1.47:$dest_dir
-    # echo $src_dir $dest_dir
+    # read -e -p "src: " src_dir
+    # read -e -p "dest: " dest_dir
+    youtube_src="/home/ken_nc/Videos/youtube/"
+    youtube_dest="/volume2/backup/thinkpad_backup/youtube/youtube/"
+
+    document_src="/home/ken_nc/Documents/"
+    document_dest="/volume2/backup/thinkpad_backup/kennc_Doc/"
+
+    download_src="/home/ken_nc/Downloads/"
+    download_dest="/volume2/backup/thinkpad_backup/kennc_Down/"
+
+    picture_src="/home/ken_nc/Pictures/"
+    picture_dest="/volume2/backup/thinkpad_backup/kennc_Pic/"
+
+    meme_src="/home/ken_nc/Videos/Memes/"
+    meme_dest="/volume2/backup/thinkpad_backup/Memes/"
+
+    echo "Back Up Youtube"
+    echo "------------------------"
+    rsync -avuz $youtube_src ken_nc@192.168.1.49:$youtube_dest
+    echo "Back Up Memes"
+    echo "------------------------"
+    rsync -avuz $meme_src ken_nc@192.168.1.49:$meme_dest
+    echo "Back Up Documents"
+    echo "------------------------"
+    rsync -avuz $document_src ken_nc@192.168.1.49:$document_dest
+    echo "Back Up Downloads"
+    echo "------------------------"
+    rsync -avuz $download_src ken_nc@192.168.1.49:$download_dest
+    echo "Back Up Pictures"
+    echo "------------------------"
+    rsync -avuz $picture_src ken_nc@192.168.1.49:$picture_dest
+}
+
+convert_img ()
+{
+    read -e -p "Output Format(jpg / png): " o_format
+    read -e -p "Input Format(webp / jpg / png): " i_format
+    read -e -p "Directory: " directory
+    cd $directory
+    # magick mogrify -format JPEG -path OUTPUT *.webp
+    if [[ $(ls | grep -c "$i_format$") -ge 1 ]]; then
+        magick mogrify -format $o_format *.$i_format
+        rm *.$i_format
+    else
+        echo "No $i_format file found"
+    fi
+    cd -
 }
 
 
@@ -112,8 +159,8 @@ set -o vi
 #list
 # alias ls='ls --color=auto'
 alias ls='exa'
-alias la='exa -a -l -G --header --git'
-alias ll='ls -l'
+alias la='exa -alh -G --header --git'
+alias ll='ls -lh'
 
 #fix obvious typo's
 alias cd..='cd ..'
@@ -135,13 +182,13 @@ alias running_service='systemctl list-units --type=service'
 alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
 alias logout='pkill -KILL -u ken_nc'
 alias untar="tar -xvzf"
-alias himitsu="vi ~/Downloads/importantDocuments/.password; keepassxc"
-alias diskstation='ssh ken_nc@192.168.1.47 -p22'
+alias himitsu="vi ~/Downloads/importantDocuments/.himitsu; keepassxc"
+alias diskstation='ssh ken_nc@192.168.1.49 -p22'
 # alias rsync='rsync -avuz'
 # rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
 # scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
 alias uname='uname -nor'
-alias iftop='sudo iftop -i wlp0s20f3'
+alias iftop='sudo iftop -i wlan0'
 alias yay='paru'
 alias nb='newsboat'
 #alias cat='bat'
@@ -153,8 +200,11 @@ alias gb='go build -o /home/ken_nc/go/bin/'
 alias bask='xdg-settings set default-web-browser basilisk.desktop'
 alias libw='xdg-settings set default-web-browser librewolf.desktop'
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
+alias df='dfc'
+alias gcc_w='gcc -Wall -Wextra -Wformat-security -Wswitch-default'
 wmname LG3D
 #./Downloads/color-scripts/color-scripts/elfman
 clear
-cat ~/Downloads/Ascii-Arts/gnu | lolcat
+# cat ~/Downloads/Ascii-Arts/gnu | lolcat
+#user_info
 echo ''

@@ -89,3 +89,6 @@
 ** Openssh
 ** Network Manager
 ** skippy-xd (dwm expand view)
+** FiraCode Font
+*** https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+** Firejail
