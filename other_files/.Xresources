@@ -1,37 +1,68 @@
-*foreground: #00cc00
-*foreground_bold: #a8a19f
-*cursor: #a8a19f
-*background: #1b1918
+/* *foreground: #00cc00 */
+/* *foreground_bold: #a8a19f */
+/* *cursor: #a8a19f */
+/* *background: #1b1918 */
 
-!! black
-*color0: #1b1918
-*color8: #766e6b
-!! red
-*color1: #f22c40
-*color9: #f22c40
-!! green
-*color2: #5ab738
-*color10: #5ab738
-!! yellow
-*color3: #d5911a
-*color11: #d5911a
-!! blue
-*color4: #407ee7
-*color12: #407ee7
-!! magenta
-*color5: #6666ea
-*color13: #6666ea
-!! cyan
-*color6: #00ad9c
-*color14: #00ad9c
-!! white
-*color7: #a8a19f
-*color15: #f1efee
+/* !! black */
+/* *color0: #1b1918 */
+/* *color8: #766e6b */
+/* !! red */
+/* *color1: #f22c40 */
+/* *color9: #f22c40 */
+/* !! green */
+/* *color2: #5ab738 */
+/* *color10: #5ab738 */
+/* !! yellow */
+/* *color3: #d5911a */
+/* *color11: #d5911a */
+/* !! blue */
+/* *color4: #407ee7 */
+/* *color12: #407ee7 */
+/* !! magenta */
+/* *color5: #6666ea */
+/* *color13: #6666ea */
+/* !! cyan */
+/* *color6: #00ad9c */
+/* *color14: #00ad9c */
+/* !! white */
+/* *color7: #a8a19f */
+/* *color15: #f1efee */
+
+! Black + DarkGrey
+*color0:  rgb:00/00/00
+*color8:  rgb:26/26/26
+! DarkRed + Red
+*color1:  rgb:d7/5f/00
+*color9:  rgb:d7/87/5f
+! DarkGreen + Green
+*color2:  rgb:af/87/5f
+*color10: rgb:d7/af/87
+! DarkYellow + Yellow
+*color3:  rgb:ff/d7/87
+*color11: rgb:ff/d7/5f
+! DarkBlue + Blue
+*color4:  rgb:5f/87/af
+*color12: rgb:87/af/d7
+! DarkMagenta + Magenta
+*color5:  rgb:87/5f/5f
+*color13: rgb:af/87/af
+!DarkCyan + Cyan
+*color6:  rgb:ff/d7/af
+*color14: rgb:ff/ff/d7
+! LightGrey + White
+*color7:  rgb:a8/a8/a8
+*color15: rgb:ff/ff/ff
+! FG/BG/Cursor
+*foreground:  rgb:ff/af/5f
+*background:  rgb:00/00/00
+*cursorColor: rgb:d7/5f/00
 
 !! URXVT Settings
 /* URxvt.intensityStyles:	false */
 /* URxvt.depth:		32 */
-URxvt.font: 		xft:monospace:size=12
+URxvt.font:         xft:FiraCode Nerd Font:style=Regular:pixelsize=16
+URxvt.boldFont:     xft:FiraCode Nerd Font:style=Bold:pixelsize=16
+URxvt.italicFont:   xft:FiraCode Nerd Font:style=Light:pixelsize=16
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 URxvt.perl-ext-common:	default,resize-font,matcher,keyboard-select
