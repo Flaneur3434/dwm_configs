@@ -1,6 +1,7 @@
 export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[35m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
 #export PS1="\[\e[37m\]\W\[\e[m\] \[\e[34m\]|\[\e[m\]  "
 
+PLAN9=/usr/local/plan9 export PLAN9
 set -o vi
 
 #ignore upper and lowercase when TAB completion
@@ -133,12 +134,17 @@ convert_vid ()
                     echo "Unkown input file type"
                     ;;
             esac
-            #rm "$vid_file"
+            rm "$vid_file"
         else
             echo "File(s) not found"
         fi
     done
     cd -
+}
+
+gcc_w (){
+    output_file=$(echo $1 | sed -nr "s/(.*)(\.c)/\1/p")
+    gcc -Wall -Wextra -Wformat-security -Wswitch-default $1 -o $output_file
 }
 
 #youtube-dl
@@ -192,6 +198,13 @@ alias clock='tty-clock -cs'
 
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 
-alias gcc_w='gcc -Wall -Wextra -Wformat-security -Wswitch-default'
+alias fetch='fm6000 -de none -o Arch'
+alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
 
-echo ''
+echo "ken_ncです。よろしくお願いします。"
+echo "ken_ncです。よろしくお願いします。"
+echo "ken_ncです。よろしくお願いします。"
+echo "ken_ncです。よろしくお願いします。"
+#fahrenheit_set.sh 
+#orbital_set.sh
+cat ~/Documents/asciiArt/glenda
