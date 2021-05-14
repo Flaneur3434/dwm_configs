@@ -93,3 +93,5 @@
 ** FiraCode Font
 *** https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
 ** Firejail
+** pavucontrol (pulseaudio volume control)
+** NetworkManger
