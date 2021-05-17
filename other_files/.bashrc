@@ -1,7 +1,5 @@
-export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[35m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\\$ "
-#export PS1="\[\e[37m\]\W\[\e[m\] \[\e[34m\]|\[\e[m\]  "
+[ -f ~/.profile ] && . ~/.profile
 
-PLAN9=/usr/local/plan9 export PLAN9
 set -o vi
 
 #ignore upper and lowercase when TAB completion
@@ -94,24 +92,35 @@ convert_img ()
 {
     read -e -p "Output Format(jpg / png): " o_format
     read -e -p "Input Format(webp / jpg / png): " i_format
-    read -e -p "Directory: " directory
-    cd $directory
+    read -e -p "Current Directory: " current
+    if [[ "$current" != "y" ]]; then
+        read -e -p "Directory: " $directory
+        cd $directory
+    fi
     # magick mogrify -format JPEG -path OUTPUT *.webp
     if [[ $(ls | grep -c "$i_format$") -ge 1 ]]; then
+        printf "Stand by ...\n"
         magick mogrify -format $o_format *.$i_format
         rm *.$i_format
     else
         echo "No $i_format file found"
     fi
-    cd -
+    if [[ -n "$directory" ]]; then
+        cd -
+    fi
 }
 
 convert_vid ()
 {
     read -e -p "Output Format(mp4 / webm): " o_format
     read -e -p "Input Format(m4v / mp4 / webm): " i_format
-    read -e -p "Directory: " directory
-    cd $directorya
+    read -e -p "Current Directory: " current
+    if [[ "$current" == "y" ]]; then
+        directory=$(pwd)
+    else
+        read -e -p "Directory: " directory
+        cd $directory
+    fi
     if [[ $o_format == $i_format ]]; then
         echo "input and output format is the same"
         return 0
@@ -120,26 +129,15 @@ convert_vid ()
     do
         if [[ "$vid_file" =~ "$i_format" ]]; then
             vid_name=$(echo "$vid_file" | sed -nr "s/(.*)(\.$i_format)/\1/p")
-            case $i_format in
-                mp4)
-                    ffmpeg -i "$vid_file" "$vid_name.$o_format"
-                    ;;
-                webm)
-                    ffmpeg -i "$vid_file" -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis "$vid_name.$o_format" 
-                    ;;
-                m4v)
-                    ffmpeg -i "$vid_file" -vcodec copy -acodec copy "$vid_name.$o_format"
-                    ;;
-                *)
-                    echo "Unkown input file type"
-                    ;;
-            esac
+            ffmpeg -i "$vid_file" "$vid_name.$o_format"
             rm "$vid_file"
         else
             echo "File(s) not found"
         fi
     done
-    cd -
+    if [[ "$directory" != "$(pwd)" ]]; then
+        cd -
+    fi
 }
 
 gcc_w (){
@@ -176,6 +174,8 @@ alias dhelp='cat ~/Downloads/dwm/config.h'
 alias ls='exa'
 alias la='exa -alh -G --header --git'
 alias ll='ls -lh'
+# alias la='ls -a'
+# alias ll='ls -l'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias ftc_code='cd Documents/programming/Ultimate-Goal/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
@@ -192,9 +192,9 @@ alias diskstation='ssh ken_nc@192.168.1.49 -p22'
 alias iftop='sudo iftop -i wlan0'
 alias yay='paru'
 
-alias grep='rg'
+alias grep='rg -i'
 alias blog='blog.sh'
-alias clock='tty-clock -cs'
+alias clock='plan9_clock'
 
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 
@@ -205,6 +205,7 @@ echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
+echo ''
 #fahrenheit_set.sh 
 #orbital_set.sh
 cat ~/Documents/asciiArt/glenda
