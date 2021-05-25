@@ -23,7 +23,6 @@
 ** Tor
 *** Addons:
       - None
-** Zeronet
 * Programming
 ** nvim
 *** NerdTree
@@ -40,11 +39,13 @@
 *** tagbar
 *** vim-orgmode
 *** vim-SyntaxRange
-** vs-code
+** VsCodium (nah...)
 ** termite
 ** urxvt
 ** git
+** acme
 ** plan9port
+** gnu debugger (gdb)
 * b
 ** Session-Desktop-bin
 ** Caprine
@@ -95,3 +96,4 @@
 ** Firejail
 ** pavucontrol (pulseaudio volume control)
 ** NetworkManger
+** 91menu
