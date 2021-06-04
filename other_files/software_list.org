@@ -86,10 +86,9 @@
 ** KeePassXC
 ** bc
 ** rg (grep but better)
-** Android Studio
+** exa
 ** Ueberzug
 ** Openssh
-** Network Manager
 ** skippy-xd (dwm expand view)
 ** FiraCode Font
 *** https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
@@ -97,3 +96,5 @@
 ** pavucontrol (pulseaudio volume control)
 ** NetworkManger
 ** 91menu
+** imagemagick
+** ffmpeg

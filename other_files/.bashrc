@@ -83,11 +83,6 @@ backup ()
     rsync -avuz $recordings_src ken_nc@192.168.1.49:$recordings_dest
 }
 
-hdown ()
-{
-    nhentai --id=$1 --output=/home/ken_nc/.plzNo/.iSaidNo/.nooooo/manga/ --download
-}
-
 convert_img ()
 {
     read -e -p "Output Format(jpg / png): " o_format
@@ -174,6 +169,7 @@ alias dhelp='cat ~/Downloads/dwm/config.h'
 alias ls='exa'
 alias la='exa -alh -G --header --git'
 alias ll='ls -lh'
+alias by_size='du -sm * | sort -nr | head -15'
 # alias la='ls -a'
 # alias ll='ls -l'
 
@@ -200,12 +196,14 @@ alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 
 alias fetch='fm6000 -de none -o Arch'
 alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
+alias reset_clock='sudo timedatectl set-timezone UTC'
 
+alias pl='. 91plumber'
+# Start
+clear
 echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
 echo "ken_ncです。よろしくお願いします。"
 echo ''
-#fahrenheit_set.sh 
-#orbital_set.sh
 cat ~/Documents/asciiArt/glenda

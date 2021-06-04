@@ -9,10 +9,12 @@ export PATH="$PATH:/usr/local/plan9/bin"
 export PATH="$PATH:$HOME/go/bin/"
 export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 export PATH="$PATH:$HOME/Documents/scripts/"
+export PATH="$PATH:$HOME/Documents/scripts/acme_scripts/"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
 PLAN9=/usr/local/plan9 export PLAN9
 
+export QT_GRAPHICSSYSTEM=native
 # opam configuration
 test -r /home/ken_nc/.opam/opam-init/init.sh && . /home/ken_nc/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
