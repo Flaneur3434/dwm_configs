@@ -77,12 +77,12 @@ ShortAllWindowsMenus
 StayUpMenus
 
 BorderWidth 4
-#MaxWindowSize 1920x1080
-VirtualScreens
-{
-	"1920x1080+0+0"
-	"1920x1080+0+1079"
-}
+MaxWindowSize 1950x1100
+#VirtualScreens
+#{
+#	"1920x1080+0+0"
+#	"1920x1080+0+1079"
+#}
 
 #################################
 #
