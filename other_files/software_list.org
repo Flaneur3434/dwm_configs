@@ -94,7 +94,9 @@
 *** https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
 ** Firejail
 ** pavucontrol (pulseaudio volume control)
-** NetworkManger
+** networkmanger / iwd
 ** 91menu
 ** imagemagick
 ** ffmpeg
+** scdl (https://github.com/flyingrub/scdl)
+** xpdf

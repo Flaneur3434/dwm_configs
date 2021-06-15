@@ -1,6 +1,7 @@
+# http://xahlee.info/linux/linux_show_keycode_keysym.html
 #rofi
 super + o
-  ./Documents/scripts/rofi_dwm.sh
+  ~/Documents/scripts/rofi_dwm.sh
 
 #screenshot
 ctrl + shift + g
@@ -32,3 +33,18 @@ XF86MonBrightnessUp
 
 alt + Tab
     skippy-xd-runner --activate 
+
+ctrl + shift + z
+	91plumber
+
+#terminal
+super + Return
+	termite
+
+#browser
+super + b
+	librewolf
+
+#Flameshot
+Print
+	flameshot gui
