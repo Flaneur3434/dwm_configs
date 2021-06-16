@@ -199,6 +199,7 @@ alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
 alias reset_clock='sudo timedatectl set-timezone UTC'
 
 alias pl='. 91plumber'
+alias tar_gz='tar czvf' #tar czvf mydirectory.tgz mydirectory
 # Start
 clear
 echo "ken_ncです。よろしくお願いします。"
