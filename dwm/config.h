@@ -37,11 +37,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-    { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "St", NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "Termite", NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     	instance  title           	tags mask  isfloating  isterminal  noswallow  monitor */
+    { "Gimp",   	NULL,     NULL,           	0,         	1,          	0,           	0,        		-1 },
+	{ "St", 		NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
+	{ "Termite", 	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
+	{ "URxvt", 	    "urxvt",     NULL,           	0,         	0,          	1,           	0,        		-1 },
+	{ NULL,      	NULL,     "Event Tester", 	0,         	0,          	0,           	1,        		-1 }, /* xev */
 };
 
 /* layout(s) */
@@ -73,29 +74,32 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "termite", NULL };
-static const char *librewolf[]  = { "librewolf", NULL };
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
-static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle",  NULL };
-static const char *emacs[] = { "emacs", NULL };
-static const char *prtscrcmd[] = { "flameshot", "gui", NULL};
+/* static const char *plumber91[] = { "/home/ken_nc/Documents/scripts/91plumber", NULL }; */
+/* static const char *librewolf[]  = { "librewolf", NULL }; */
+/* static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL }; */
+/* static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL }; */
+/* static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL }; */
+/* static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle",  NULL }; */
+/* static const char *emacs[] = { "emacs", NULL }; */
+/* static const char *prtscrcmd[] = { "flameshot", "gui", NULL}; */
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 static Key keys[] = {
-	/* modifier                     key        function        argument */
-	/* { MODKEY,                       XK_e,      spawn,          {.v = dmenucmd } }, */
-	{ ControlMask|ShiftMask,        XK_e,      spawn,          {.v = emacs } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = librewolf } },
-    { 0,                            XK_Print,  spawn,          {.v = prtscrcmd } },
-	{ MODKEY|ShiftMask,             XK_R,      quit,           {.i = 23 } },
-	{ 0,            XF86XK_AudioLowerVolume,      spawn,          {.v = downvol } },
-	{ 0,            XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol} },
-	{ 0,                   XF86XK_AudioMute,      spawn,          {.v = mutevol} },
-	{ 0,                XF86XK_AudioMicMute,      spawn,          {.v = mutemic} },
+	/* modifier                     	key		function        argument */
+	/* { MODKEY,                      	XK_e,						spawn,	{.v = dmenucmd } }, */
+	/* { ControlMask|ShiftMask,      XK_z,      						spawn,	{.v = plumber91 } }, */
+/*	{ ControlMask|ShiftMask,        	XK_e,      						spawn,	{.v = emacs } },
+ * 	{ MODKEY,                       		XK_Return, 					spawn,	{.v = termcmd } },
+ * 	{ MODKEY,                       		XK_b,      						spawn,	{.v = librewolf } },
+ *     	{ 0,                            			XK_Print,  						spawn,	{.v = prtscrcmd } },
+ * 	{ 0,            					XF86XK_AudioLowerVolume,		spawn,      {.v = downvol } },
+ * 	{ 0,            					XF86XK_AudioRaiseVolume,      	spawn,      {.v = upvol} },
+ * 	{ 0,                   				XF86XK_AudioMute,      			spawn,      {.v = mutevol} },
+	{ 0,                				XF86XK_AudioMicMute,      		spawn,      {.v = mutemic} }, */
+
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
+	{ MODKEY|ShiftMask,             	XK_R,      						quit,          {.i = 23 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },

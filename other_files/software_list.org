@@ -100,3 +100,5 @@
 ** ffmpeg
 ** scdl (https://github.com/flyingrub/scdl)
 ** xpdf
+** lemonbar (unixy status bar)
+** Stalonetray (standalone system tray)

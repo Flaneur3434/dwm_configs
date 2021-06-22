@@ -229,10 +229,11 @@ StartInMapState
 
 WindowGeometries
 {
-	"xload" "128x96-0+224"
 	"xclock" "128x128-0+0"
+	"xload" "128x96-0+224"
 	"acme" "1300x725+145+110"
 	"jetbrains-studio" "1920+1080+0+0"
+	"Librewolf" "1920x1080+0+0"
 }
 
 # Uncomment if you want reverse colours to mark current workspace.
@@ -259,7 +260,7 @@ ShowIconManager
 IconifyByUnmapping
 
 # Placement
-IconManagerGeometry "128x512--9+320"
+IconManagerGeometry "128x512--9+344"
 
 # Sort alphabetically
 SortIconManager
@@ -305,6 +306,7 @@ IconManagerDontShow
     "xneko"
     "xload"
     "xosview"
+    "stalonetray"
 }
 
 IconMenuDontShow
@@ -319,6 +321,7 @@ IconMenuDontShow
     "xneko"
     "xload"
     "xosview"
+    "stalonetray"
 }
 
 # Exclude these windows from the warp ring
@@ -334,6 +337,7 @@ WindowRingExclude
     "xneko"
     "xload"
     "xosview"
+    "stalonetray"
 }
 
 # Put these windows on all workspaces.
@@ -349,6 +353,7 @@ OccupyAll
     "xbiff"
     "xsm"
     "xosview"
+    "stalonetray"
 }
 
 StartIconified 
@@ -445,9 +450,9 @@ Button3 = : iconmgr : f.menu "iconmgrmenu"
 "Down"  = mod4 : all : f.jumpdown "20"
 
 "k" 	= mod4 : all : f.jumpup "20"
-"j" 	= mod4 : all : f.jumpleft "20"
+"j" 	= mod4 : all : f.jumpdown "20"
 "l" 	= mod4 : all : f.jumpright "20"
-"h" 	= mod4 : all : f.jumpdown "20"
+"h" 	= mod4 : all : f.jumpleft "20"
 
 # Resize windows 10 pixel with alt + vi-like binds or arrow keys.
 "Right" = mod4 | c : all : f.changesize "right +10"
@@ -456,9 +461,9 @@ Button3 = : iconmgr : f.menu "iconmgrmenu"
 "Up"    = mod4 | c : all : f.changesize "bottom -10"
 
 "k" 	= mod4 | c : all : f.changesize "right +10"
-"j" 	= mod4 | c : all : f.changesize "right -10"
+"h" 	= mod4 | c : all : f.changesize "right -10"
 "l" 	= mod4 | c : all : f.changesize "bottom +10"
-"h" 	= mod4 | c : all : f.changesize "bottom -10"
+"j" 	= mod4 | c : all : f.changesize "bottom -10"
 
 # Maximize windows
 "f" = mod4 : all: f.fullzoom
@@ -519,8 +524,8 @@ menu "editors"
 menu "fms"
 {
 	"  File Managers  "		f.title
-	"mc"					f.exec "termite -e mc &"
-	"ranger"				f.exec "termite -e ranger &"
+	"mc"					f.exec "urxvt -e mc &"
+	"ranger"				f.exec "urxvt -e ranger &"
 	"spacefm"				f.exec "spacefm &"
 }
 
@@ -532,7 +537,7 @@ menu "network"
 	"brave"				f.exec "brave &"
 	"caprine"				f.exec "caprine &"
 	"discord"				f.exec "discord &"
-	"sdf"					f.exec "termite -e ssh sehnsucht@tty.sdf.org"
+	"sdf"					f.exec "urxvt -e ssh sehnsucht@tty.sdf.org"
 }
 	
 menu "graphics"

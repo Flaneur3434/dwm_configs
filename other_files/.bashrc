@@ -83,6 +83,17 @@ backup ()
     rsync -avuz $recordings_src ken_nc@192.168.1.49:$recordings_dest
 }
 
+tar_gz ()
+{
+    tar_file_name="$1.tar.gz"
+    tar -czvf $tar_file_name $1
+}
+
+hdown ()
+{
+    nhentai --id=$1 --output=/home/ken_nc/.plzNo/.iSaidNo/.nooooo/manga/ --download
+}
+
 convert_img ()
 {
     read -e -p "Output Format(jpg / png): " o_format
@@ -200,6 +211,10 @@ alias reset_clock='sudo timedatectl set-timezone UTC'
 
 alias pl='. 91plumber'
 alias tar_gz='tar czvf' #tar czvf mydirectory.tgz mydirectory
+
+#cheatsheet
+# xdg-settings set default-web-browser brave-browser.desktop
+# xdg-settings set default-web-browser librewolf.desktop
 # Start
 clear
 echo "ken_ncです。よろしくお願いします。"

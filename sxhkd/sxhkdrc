@@ -5,31 +5,45 @@ super + o
 
 #screenshot
 ctrl + shift + g
-  gscreenshot
+  	gscreenshot
 
 #Caprine
 ctrl + shift + m
-  caprine
+  	caprine
 
 #Discord
 ctrl + shift +d
-  discord
+  	discord
 
 #Volume Up
 ctrl + shift + a
-  pactl set-sink-volume @DEFAULT_SINK@ +5% && kill -SIGUSR1 $(pgrep dwm_status.py)
+  	pactl set-sink-volume 0 +5%
 
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+	
 #Volume Down
 ctrl + shift + s
-  pactl set-sink-volume @DEFAULT_SINK@ -5% && kill -SIGUSR1 $(pgrep dwm_status.py)
+  	pactl set-sink-volume 0 -5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+#MuteVol
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+#MuteMic
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #Brightness
 #use xbindkeys --key to figure out keys
 XF86MonBrightnessDown
-  xbacklight -dec 10
+  	xbacklight -dec 10
 
 XF86MonBrightnessUp
-  xbacklight -inc 10
+  	xbacklight -inc 10
 
 alt + Tab
     skippy-xd-runner --activate 
@@ -39,7 +53,7 @@ ctrl + shift + z
 
 #terminal
 super + Return
-	termite
+	urxvt
 
 #browser
 super + b
