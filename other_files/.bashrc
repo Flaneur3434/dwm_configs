@@ -2,6 +2,10 @@
 
 set -o vi
 
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
@@ -87,11 +91,6 @@ tar_gz ()
 {
     tar_file_name="$1.tar.gz"
     tar -czvf $tar_file_name $1
-}
-
-hdown ()
-{
-    nhentai --id=$1 --output=/home/ken_nc/.plzNo/.iSaidNo/.nooooo/manga/ --download
 }
 
 convert_img ()
@@ -189,13 +188,18 @@ alias ftc_code='cd Documents/programming/Ultimate-Goal/TeamCode/src/main/java/or
 alias ftc='cd Documents/programming/Ultimate-Goal/'
 alias website='cd Documents/programming/html/school_website'
 alias colortest='./Downloads/color-scripts/color-scripts/colortest'
+alias cs61c='cd Documents/programming/cs61c/'
 
 alias running_service='systemctl list-units --type=service'
 alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
 alias diskstation='ssh ken_nc@192.168.1.49 -p22'
+hive ()
+{
+    read -e -p "Enter hive number: " hive_num
+    ssh "cs61c-adt@hive${hive_num}.cs.berkeley.edu"
+}
 # alias rsync='rsync -avuz'
-# rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
-# scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
+
 alias iftop='sudo iftop -i wlan0'
 alias yay='paru'
 
@@ -212,14 +216,21 @@ alias reset_clock='sudo timedatectl set-timezone UTC'
 alias pl='. 91plumber'
 alias tar_gz='tar czvf' #tar czvf mydirectory.tgz mydirectory
 
+alias logisim='java -jar ../tools/logisim-evolution.jar'
+
 #cheatsheet
 # xdg-settings set default-web-browser brave-browser.desktop
 # xdg-settings set default-web-browser librewolf.desktop
+
+# rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
+# scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
+
+
 # Start
 clear
 echo "ken_ncです。よろしくお願いします。"
-echo "ken_ncです。よろしくお願いします。"
-echo "ken_ncです。よろしくお願いします。"
-echo "ken_ncです。よろしくお願いします。"
+echo "δωρεάν λαγουδάκι"
+echo "бесплатный кролик"
+echo "免費的兔子"
 echo ''
 cat ~/Documents/asciiArt/glenda

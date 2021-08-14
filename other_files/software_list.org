@@ -46,6 +46,7 @@
 ** acme
 ** plan9port
 ** gnu debugger (gdb)
+** bash-completion
 * b
 ** Session-Desktop-bin
 ** Caprine
@@ -102,3 +103,9 @@
 ** xpdf
 ** lemonbar (unixy status bar)
 ** Stalonetray (standalone system tray)
+** ncdu (find largest files)
+** rmlint (rm empty directories and broken links)
+** cmus
+** tabbed
+** powertop (power tuner)
+** tlp (battery threshold setter)

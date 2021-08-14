@@ -6,17 +6,17 @@ directory=$PWD
 case $item in
     *\.jpg | *\.png)
         sel=$(printf "sxiv\npage\nfeh" | 91menu)
-        [ "$sel" = "sxiv" ] && $(sxiv "$directory/$item") 2> /dev/null
-        [ "$sel" = "page" ] && $(page "$directory/$item") 2> /dev/null
-        [ "$sel" = "feh" ] && $(feh "$directory/$item") 2> /dev/null
+        [ "$sel" = "sxiv" ] && $(sxiv "$directory/$item" &>/dev/null)
+        [ "$sel" = "page" ] && $(page "$directory/$item" &>/dev/null)
+        [ "$sel" = "feh" ] && $(feh "$directory/$item" &>/dev/null)
         ;;
     *\.mp4 | *\.webm | *\.mov | *\.mkv | *\.gif)
         sel=$(printf "mpv\n" | 91menu)
-        [ "$sel" = "mpv" ] && $(mpv "$directory/$item") 2> /dev/null
+        [ "$sel" = "mpv" ] && $(mpv "$directory/$item" &>/dev/null) 
         ;;
     *\.pdf)
         sel=$(printf "zathura\n" | 91menu)
-        [ "$sel" = "zathura" ] && $(zathura "$directory/$item") 2> /dev/null
+        [ "$sel" = "zathura" ] && $(zathura "$directory/$item" &>/dev/null) 
         ;;
     *)
         sel=$(printf "cd\nacme\nexit\n" | 91menu)
