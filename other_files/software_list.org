@@ -25,20 +25,21 @@
       - None
 * Programming
 ** nvim
-*** NerdTree
-*** Auto-Pairs
-*** coc
-*** Airline
-*** css-color
-*** fzf
-*** vim-commentary
-*** vim-surround
-*** goyo
-*** LanguageClient-neovim
-*** utl
-*** tagbar
-*** vim-orgmode
-*** vim-SyntaxRange
+*** Addons
+     - NerdTree
+     - Auto-Pairs
+     - coc
+     - Airline
+     - css-color
+     - fzf
+     - vim-commentary
+     - vim-surround
+     - goyo
+     - LanguageClient-neovim
+     - utl
+     - tagbar
+     - vim-orgmode
+     - vim-SyntaxRange
 ** VsCodium (nah...)
 ** termite
 ** urxvt
@@ -48,65 +49,65 @@
 ** gnu debugger (gdb)
 ** bash-completion
 * b
-** Session-Desktop-bin
-** Caprine
-** Discord
-** croc
-** feh (for wallpaper)
-** sxiv (imageviewer)
-** ranger
-** youtube-dl
-** android-studio
-** mpv
-** zathura
-** iftop
-** bashtop
-** tty-clock
-** dwm
-** slstatus
-** bash
-** Flameshot
-** xscreensaver
-** nm-applet
-** picom
-** dunst
-** sxhkd
-** arandr
-** xbacklight
-** rofi (could be changed to dmenu)
-** spaceFM
-** SimpleScreenRecorder
-** GIMP
-** Audacious
-** calcurse
-** ibus (language input)
-** cowsay
-** paru
-** pulse-audio
-** cava
-** KeePassXC
-** bc
-** rg (grep but better)
-** exa
-** Ueberzug
-** Openssh
-** skippy-xd (dwm expand view)
-** FiraCode Font
-*** https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
-** Firejail
-** pavucontrol (pulseaudio volume control)
-** networkmanger / iwd
-** 91menu
-** imagemagick
-** ffmpeg
-** scdl (https://github.com/flyingrub/scdl)
-** xpdf
-** lemonbar (unixy status bar)
-** Stalonetray (standalone system tray)
-** ncdu (find largest files)
-** rmlint (rm empty directories and broken links)
-** cmus
-** tabbed
-** powertop (power tuner)
-** tlp (battery threshold setter)
-** lsix (ls for images in the terminal (only can be used on xterm))
+     - Session-Desktop-bin
+     - Caprine
+     - Discord
+     - croc
+     - feh (for wallpaper)
+     - sxiv (imageviewer)
+     - ranger
+     - youtube-dl
+     - android-studio
+     - mpv
+     - zathura
+     - iftop
+     - bashtop
+     - tty-clock
+     - dwm
+     - slstatus
+     - bash
+     - Flameshot
+     - xscreensaver
+     - nm-applet
+     - picom
+     - dunst
+     - sxhkd
+     - arandr
+     - xbacklight
+     - rofi (could be changed to dmenu)
+     - spaceFM
+     - SimpleScreenRecorder
+     - GIMP
+     - Audacious
+     - calcurse
+     - ibus (language input)
+     - cowsay
+     - paru
+     - pulse-audio
+     - cava
+     - KeePassXC
+     - bc
+     - rg (grep but better)
+     - exa
+     - Ueberzug
+     - Openssh
+     - skippy-xd (dwm expand view)
+     - FiraCode Font
+     -  https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+     - Firejail
+     - pavucontrol (pulseaudio volume control)
+     - networkmanger / iwd
+     - 91menu
+     - imagemagick
+     - ffmpeg
+     - scdl (https://github.com/flyingrub/scdl)
+     - xpdf
+     - lemonbar (unixy status bar)
+     - Stalonetray (standalone system tray)
+     - ncdu (find largest files)
+     - rmlint (rm empty directories and broken links)
+     - cmus
+     - tabbed
+     - powertop (power tuner)
+     - tlp (battery threshold setter)
+     - lsix (ls for images in the terminal (only can be used on xterm))
