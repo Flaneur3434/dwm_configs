@@ -3,10 +3,6 @@
 super + o
   ~/Documents/scripts/rofi_dwm.sh
 
-#screenshot
-ctrl + shift + g
-  	gscreenshot
-
 #Caprine
 ctrl + shift + m
   	caprine
@@ -21,7 +17,7 @@ ctrl + shift + a
 
 XF86AudioRaiseVolume
 	pactl set-sink-volume 0 +5%
-	
+
 #Volume Down
 ctrl + shift + s
   	pactl set-sink-volume 0 -5%
@@ -46,14 +42,15 @@ XF86MonBrightnessUp
   	xbacklight -inc 10
 
 alt + Tab
-    skippy-xd-runner --activate 
-
-ctrl + shift + z
-	91plumber
+    skippy-xd-runner --activate
 
 #terminal
 super + Return
-	urxvt
+	tabbed xterm -into
+
+# emacs
+ctrl + shift + e
+    emacs
 
 #browser
 super + b

@@ -37,7 +37,7 @@ ex ()
       *.7z)        7z x $1      ;;
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;      
+      *.tar.zst)   unzstd $1    ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -179,7 +179,12 @@ alias dhelp='cat ~/Downloads/dwm/config.h'
 alias ls='exa'
 alias la='exa -alh -G --header --git'
 alias ll='ls -lh'
-alias by_size='du -sm * | sort -nr | head -15'
+
+by_size()
+{
+    du -sm * | sort -nr | head -10 | awk '{printf "%.2fG\t", $1/1024; $1=""; print $0}'
+}
+
 # alias la='ls -a'
 # alias ll='ls -l'
 
@@ -217,6 +222,9 @@ alias pl='. 91plumber'
 alias tar_gz='tar czvf' #tar czvf mydirectory.tgz mydirectory
 
 alias logisim='java -jar ../tools/logisim-evolution.jar'
+
+# alias xterm='tabbed xterm -into'
+alias em='emacs -nw'
 
 #cheatsheet
 # xdg-settings set default-web-browser brave-browser.desktop

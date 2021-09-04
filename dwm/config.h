@@ -23,7 +23,7 @@ static const char selbgcolor[]      = "#0066ff";
 static const char selfgcolor[]      = "#ffffff";
 
 static const char *colors[][3]      = {
-              /* fontcolor  taskbar    border */  
+              /* fontcolor  taskbar    border */
 [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
 [SchemeSel]  = { selfgcolor, selbgcolor, selbordercolor  },
 };
@@ -39,9 +39,11 @@ static const Rule rules[] = {
 	 */
 	/* class     	instance  title           	tags mask  isfloating  isterminal  noswallow  monitor */
     { "Gimp",   	NULL,     NULL,           	0,         	1,          	0,           	0,        		-1 },
+    { "tabbed",   	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
 	{ "St", 		NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
 	{ "Termite", 	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
-	{ "URxvt", 	    "urxvt",     NULL,           	0,         	0,          	1,           	0,        		-1 },
+ 	{ "URxvt", 	    "urxvt",     NULL,           	0,         	0,          	1,           	0,        		-1 },
+ 	{ "XTerm", 	    "xterm",     NULL,           	0,         	0,          	1,           	0,        		-1 },
 	{ NULL,      	NULL,     "Event Tester", 	0,         	0,          	0,           	1,        		-1 }, /* xev */
 };
 
@@ -152,5 +154,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
-
