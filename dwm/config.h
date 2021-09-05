@@ -28,7 +28,6 @@ static const char *colors[][3]      = {
 [SchemeSel]  = { selfgcolor, selbgcolor, selbordercolor  },
 };
 
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -91,23 +90,24 @@ static Key keys[] = {
 	/* modifier                     	key		function        argument */
 	/* { MODKEY,                      	XK_e,						spawn,	{.v = dmenucmd } }, */
 	/* { ControlMask|ShiftMask,      XK_z,      						spawn,	{.v = plumber91 } }, */
-/*	{ ControlMask|ShiftMask,        	XK_e,      						spawn,	{.v = emacs } },
- * 	{ MODKEY,                       		XK_Return, 					spawn,	{.v = termcmd } },
- * 	{ MODKEY,                       		XK_b,      						spawn,	{.v = librewolf } },
- *     	{ 0,                            			XK_Print,  						spawn,	{.v = prtscrcmd } },
- * 	{ 0,            					XF86XK_AudioLowerVolume,		spawn,      {.v = downvol } },
- * 	{ 0,            					XF86XK_AudioRaiseVolume,      	spawn,      {.v = upvol} },
- * 	{ 0,                   				XF86XK_AudioMute,      			spawn,      {.v = mutevol} },
-	{ 0,                				XF86XK_AudioMicMute,      		spawn,      {.v = mutemic} }, */
+	/* { ControlMask|ShiftMask,        	XK_e,      						spawn,	{.v = emacs } }, */
+	/* { MODKEY,                       		XK_Return, 					spawn,	{.v = termcmd } }, */
+	/* { MODKEY,                       		XK_b,      						spawn,	{.v = librewolf } }, */
+    /* { 0,                            			XK_Print,  						spawn,	{.v = prtscrcmd } }, */
+	/* { 0,            					XF86XK_AudioLowerVolume,		spawn,      {.v = downvol } }, */
+	/* { 0,            					XF86XK_AudioRaiseVolume,      	spawn,      {.v = upvol} }, */
+	/* { 0,                   				XF86XK_AudioMute,      			spawn,      {.v = mutevol} }, */
+	/* { 0,                				XF86XK_AudioMicMute,      		spawn,      {.v = mutemic} }, */
 
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
 	{ MODKEY|ShiftMask,             	XK_R,      						quit,          {.i = 23 } },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_i,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_u,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_j,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
@@ -122,8 +122,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
-	{ MODKEY,                       XK_p,      shiftview,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      shiftview,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
