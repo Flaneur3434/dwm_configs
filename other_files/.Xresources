@@ -5,58 +5,31 @@
 *.background:       #010202
 
 ! Colors 0-15.
-*color0:   #000000
-*color1:   #0087d7
-*color2:   #5f87af
-*color3:   #ffd7af
-*color4:   #d7af87
-*color5:   #005faf
-*color6:   #5fafff
-*color7:   #87afd7
-*color8:   #0000d7
-*color9:   #bcbcbc
+*color0:   #87afd7
+*color1:   #5fafff
+*color2:   #5f87d7
+*color3:   #5f87af
+*color4:   #ffd7af
+*color5:   #d7af87
+*color6:   #af875f
+*color7:   #0087d7
+*color8:   #005faf
+*color9:   #0000d7
 *color10:  #e4e4e4
-*color11:  #af875f
+*color11:  #bcbcbc
 *color12:  #5f5f5f
-*color13:  #5f87d7
+*color13:  #949494
 *color14:  #262626
-*color15:  #949494
-
-!! URXVT Settings
-/* URxvt.intensityStyles:	false */
-/* URxvt.depth:		32 */
-URxvt.font:         xft:FiraCode Nerd Font:style=Regular:pixelsize=16
-URxvt.boldFont:     xft:FiraCode Nerd Font:style=Bold:pixelsize=16
-URxvt.italicFont:   xft:FiraCode Nerd Font:style=Light:pixelsize=16
-URxvt.scrollBar:	false
-URxvt.cursorColor:	white
-URxvt.perl-ext-common:	default,resize-font,matcher,keyboard-select
-
-!! Copy and Paste
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-!! Matcher
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
-URxvt.matcher.rend.0: Uline Bold fg5
-
-!! Resize
-URxvt.keysym.Control-j: resize-font:smaller
-URxvt.keysym.Control-k: resize-font:bigger
-URxvt.keysym.Control-equal: resize-font:reset
-
-!! Keyboard Select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+*color15:  #000000
 
 !! XTERM settings
 XTerm.vt100.locale: false
 XTerm.vt100.utf8: true
 XTerm*saveLines:   5000
-XTerm*faceName: xft:FiraCode Nerd
-XTerm*faceSize: 16
+
+!Fonts
+XTerm*vt100*faceName: xft:ProFontIIx:size=12:antialias=false
+xterm*vt100*geometry: 80x50
 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 8
@@ -68,6 +41,9 @@ xterm*faceSize3: 12
 xterm*faceSize4: 16
 ! VT font menu: Huge
 xterm*faceSize5: 22
+
+! Allow sixel graphics.
+xterm*decTerminalID	:	vt340
 
 ! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
 XTerm*selectToClipboard: true

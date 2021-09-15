@@ -59,3 +59,11 @@ super + b
 #Flameshot
 Print
 	flameshot gui
+
+#dmenurecord
+super + shift + r
+	  dmenurecord
+
+#webcam toggle
+super + shift + c
+	  webcam_toggle

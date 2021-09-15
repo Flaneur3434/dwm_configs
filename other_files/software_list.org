@@ -111,3 +111,4 @@
      - powertop (power tuner)
      - tlp (battery threshold setter)
      - lsix (ls for images in the terminal (only can be used on xterm))
+     - ProFont (https://tobiasjung.name/profont/)
