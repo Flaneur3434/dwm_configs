@@ -32,7 +32,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+#benq
+#xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+
+#square monitor
+xrandr --output eDP1 --mode 1920x1080 --pos 1280x1080 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP1-3 --mode 1280x1024 --pos 0x388 --rotate normal --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+
+# no laptop
+#xrandr --output eDP1 --off --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP1-3 --mode 1280x1024 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+
+#feh --bg-center ~/Downloads/lain_stuff/wallpaper/damedame.jpg &
+#feh --bg-center ~/Pictures/Wallpapers/random/fumo.png &
 
 picom &
 
@@ -42,13 +52,15 @@ start-pulseaudio-x11 &
 
 dunst &
 
-#skippy-xd --start-daemon &
+skippy-xd --start-daemon &
 
 sxhkd &
 
 nm-applet &
 
 flameshot &
+
+emacs --daemon &
 
 ibus
  export GTK_IM_MODULE=ibus
@@ -60,16 +72,15 @@ xset s off # Disable screen saver blinking
 
 xset -dpms # Turns on display power management signaling (+dpms to turn on)
 
-xclock & 
+#xclock &
 
-xload &
+#xload &
 
-stalonetray --geometry 5x1-0+320 -bg "#808080" --window-strut none &
+#stalonetray --geometry 5x1-0+320 -bg "#808080" --window-strut none &
 
-exec ctwm
+# exec ctwm
 
-#exec dwm
-
-#slstatus &
+slstatus &
+exec dwm
 
 #exec rio -term termite

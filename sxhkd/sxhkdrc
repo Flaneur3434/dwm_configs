@@ -50,7 +50,7 @@ super + Return
 
 # emacs
 ctrl + shift + e
-    emacs
+    emacsclient -c -a emacs
 
 #browser
 super + b

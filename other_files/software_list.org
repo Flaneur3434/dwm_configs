@@ -16,7 +16,7 @@
       - User-Agent Switcher
       - Video Speed Controller
       - Vimium
-      - ClearURL	
+      - ClearURL
 ** Brave
 *** Addons:
       - None
@@ -76,7 +76,7 @@
      - xbacklight
      - rofi (could be changed to dmenu)
      - spaceFM
-     - SimpleScreenRecorder
+     - Vokoscreen (screen recorder)
      - GIMP
      - Audacious
      - calcurse
