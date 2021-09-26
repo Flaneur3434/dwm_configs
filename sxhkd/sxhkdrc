@@ -36,10 +36,10 @@ XF86AudioMicMute
 #Brightness
 #use xbindkeys --key to figure out keys
 XF86MonBrightnessDown
-  	xbacklight -dec 10
+  	xbacklight -dec 1
 
 XF86MonBrightnessUp
-  	xbacklight -inc 10
+  	xbacklight -inc 1
 
 alt + Tab
     skippy-xd-runner --activate
@@ -67,3 +67,7 @@ super + shift + r
 #webcam toggle
 super + shift + c
 	  webcam_toggle
+
+#xkill toggle
+super + shift + x
+	  xkill

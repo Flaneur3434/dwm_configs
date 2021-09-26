@@ -12,19 +12,27 @@ case $item in
         ;;
     *\.mp4 | *\.webm | *\.mov | *\.mkv | *\.gif)
         sel=$(printf "mpv\n" | 91menu)
-        [ "$sel" = "mpv" ] && $(mpv "$directory/$item" &>/dev/null) 
+        [ "$sel" = "mpv" ] && $(mpv "$directory/$item" &>/dev/null)
         ;;
     *\.pdf)
         sel=$(printf "zathura\n" | 91menu)
-        [ "$sel" = "zathura" ] && $(zathura "$directory/$item" &>/dev/null) 
+        [ "$sel" = "zathura" ] && $(zathura "$directory/$item" &>/dev/null)
         ;;
+	*.+([a-zA-Z]):+([0-9]): | *.+([a-zA-Z]):+([0-9]):+([0-9]): )
+		sel=$(printf "emacs\nacme\n" | 91menu)
+		[ "$sel" = "acme" ] && acme -l "$(pwd)/$(echo $item | awk -F: '{printf "%s:%s", $1, $2}')"
+		[ "$sel" = "emacs" ] && emacsclient -c +$(echo $item | awk -F: '{print $2}') $(echo $item | awk -F: '{print $1}')
+		;;
     *)
-        sel=$(printf "cd\nacme\nexit\n" | 91menu)
-        [ "$sel" = "cd" ] && cd "$directory/$item"; ll
+        sel=$(printf "cd\nacme\nexit\nemacs\n" | 91menu)
+        [ "$sel" = "cd" ] && cd "$directory/$item"
         [ "$sel" = "acme" ] && edwood "$directory/$item"
         [ "$sel" = "exit" ] && exit 0
+        [ "$sel" = "emacs" ] && emacsclient -c +$(echo $item | awk -F: '{print $2,$3}') $(echo $item | awk -F: '{print $1}')
 esac
 
 unset item
 unset directory
 unset sel
+
+kill 0
