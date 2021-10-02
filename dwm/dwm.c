@@ -314,6 +314,9 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static pid_t getchildprocess(pid_t p);
+static pid_t getyoungestchild(pid_t p);
+static int containsemacsclient(pid_t p);
 static pid_t getparentprocess(pid_t p);
 static int isdescprocess(pid_t p, pid_t c);
 static Client *swallowingclient(Window w);
@@ -396,7 +399,7 @@ void applyrules(Client *c) {
         (!r->class || strstr(class, r->class)) &&
         (!r->instance || strstr(instance, r->instance))) {
      	    c->isterminal = r->isterminal;
-            c->noswallow  = r->noswallow; 
+            c->noswallow  = r->noswallow;
             c->isfloating = r->isfloating;
             c->tags |= r->tags;
             for (m = mons; m && m->num != r->monitor; m = m->next)
@@ -505,6 +508,63 @@ void attach(Client *c) {
 void attachstack(Client *c) {
   c->snext = c->mon->stack;
   c->mon->stack = c;
+}
+
+
+pid_t
+getchildprocess(pid_t p)
+{
+    unsigned int v = 0;
+#ifdef __linux__
+    FILE *f;
+    char buf[256];
+    snprintf(buf, sizeof(buf) - 1, "pgrep -P %u", (unsigned) p);
+
+    if(!(f = popen(buf, "r")))
+        return 0;
+
+    fscanf(f, "%u", &v);
+    pclose(f);
+#endif
+
+    return (pid_t) v;
+}
+int
+containsemacsclient(pid_t p)
+{
+    unsigned int young = getyoungestchild(p);
+
+    if (!young)
+        return 0;
+
+    FILE *f;
+    char buf[256];
+
+    snprintf(buf, sizeof(buf) - 1, "ps -p %u -o command=", young);
+
+    if(!(f = popen(buf, "r")))
+        return 0;
+
+    char pidname[256];
+    fscanf(f, "%s", pidname);
+    pclose(f);
+
+    return strstr(pidname, emacsclient) != NULL;
+}
+
+pid_t
+getyoungestchild(pid_t p)
+{
+    unsigned int young = getchildprocess(p);
+    unsigned int tmp;
+
+    if (!young)
+        return 0;
+    while ((tmp = getchildprocess(young))) {
+        young = tmp;
+    }
+
+    return young;
 }
 
 void
@@ -1967,7 +2027,7 @@ void tile(Monitor *m) {
       h = (m->wh - ty) / (n - i);
       resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), False);
       ty += HEIGHT(c);
-      
+
     }
 }
 
@@ -2627,7 +2687,9 @@ termforwin(const Client *w)
 
 	for (m = mons; m; m = m->next) {
 		for (c = m->clients; c; c = c->next) {
-			if (c->isterminal && !c->swallowing && c->pid && isdescprocess(c->pid, w->pid))
+			if (c->isterminal && !c->swallowing && c->pid &&
+			    (isdescprocess(c->pid, w->pid) ||
+			     (containsemacsclient(c->pid) && (strstr(w->name,emacsname)))))
 				return c;
 		}
 	}

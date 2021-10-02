@@ -28,6 +28,10 @@ static const char *colors[][3]      = {
 [SchemeSel]  = { selfgcolor, selbgcolor, selbordercolor  },
 };
 
+/* swallow emacs */
+static const char emacsclient[] = "emacsclient";
+static const char emacsname[] = "emacs@";
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
