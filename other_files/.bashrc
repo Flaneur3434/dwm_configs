@@ -67,6 +67,12 @@ backup ()
     recordings_src="/home/ken_nc/Videos/recordings/"
     recordings_dest="/volume2/backup/thinkpad_backup/kennc_Vid/recordings/"
 
+	desktop_src="/home/ken_nc/Desktop/"
+    desktop_dest="/volume2/backup/thinkpad_backup/kennc_Desktop/"
+
+	music_src="/home/ken_nc/Music/"
+    music_dest="/volume2/backup/thinkpad_backup/kennc_Music/"
+
     echo "Back Up Youtube"
     echo "------------------------"
     rsync -avuz $youtube_src ken_nc@192.168.1.49:$youtube_dest
@@ -85,13 +91,14 @@ backup ()
     echo "Back Up Recordings"
     echo "------------------------"
     rsync -avuz $recordings_src ken_nc@192.168.1.49:$recordings_dest
+	echo "Back Up Desktop"
+    echo "------------------------"
+    rsync -avuz $desktop_src ken_nc@192.168.1.49:$desktop_dest
+	echo "Back Up Music"
+    echo "------------------------"
+    rsync -avuz $music_src ken_nc@192.168.1.49:$music_dest
 }
 
-tar_gz ()
-{
-    tar_file_name="$1.tar.gz"
-    tar -czvf $tar_file_name $1
-}
 
 convert_img ()
 {
@@ -198,17 +205,29 @@ alias cs61c='cd Documents/programming/cs61c/'
 alias running_service='systemctl list-units --type=service'
 alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
 alias diskstation='ssh ken_nc@192.168.1.49 -p22'
+alias ydown='cd ~/Videos/youtube'
 hive ()
 {
     read -e -p "Enter hive number: " hive_num
     ssh "cs61c-adt@hive${hive_num}.cs.berkeley.edu"
 }
+
+get_mem_pid ()
+{
+	ps -o pid,user,%mem,command ax | sort -b -k3 -r | grep "$1" | awk '{printf "%s G\t%s\n", $3/100*8, $4}'
+}
+
+mem_pid ()
+{
+	get_mem_pid $1 | awk -v name=$1 '{sum+=$1} END{printf "%sG\t%s\n", sum, name}'
+}
+
 # alias rsync='rsync -avuz'
 
 alias iftop='sudo iftop -i wlan0'
 alias yay='paru'
 
-alias grep='rg -i'
+alias grep='grep -i -E'
 alias blog='blog.sh'
 alias clock='plan9_clock'
 
@@ -219,12 +238,12 @@ alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
 alias reset_clock='sudo timedatectl set-timezone UTC'
 
 alias pl='. 91plumber'
-alias tar_gz='tar czvf' #tar czvf mydirectory.tgz mydirectory
+alias tar_gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
 
 alias logisim='java -jar ../tools/logisim-evolution.jar'
 
 # alias xterm='tabbed xterm -into'
-alias em='emacs -nw'
+alias em='emacsclient -c'
 
 #cheatsheet
 # xdg-settings set default-web-browser brave-browser.desktop
@@ -233,6 +252,20 @@ alias em='emacs -nw'
 # rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
 # scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
 
+# memory usage -------
+# ps -o pid,user,%mem,command ax | sort -b -k3 -r | grep "btop" | awk '{printf "%s G\t%s\n", $3*8, $4}'
+# /* get the memory useage of a specific prossess, in this case btop */
+
+# find files -------
+# walk ~/Documents/programming/C | grep '\.c$' | xargs g '^main'
+# /* find all files that end with .c in ~/Documents/programming/C and print the file and the line number with the pattern '^main'
+# walk | grep "\.\/[a-zA-Z0-9]*" | xargs cat
+
+# CTAGS search -------
+# ctags -f TAGS_XREF -R -x *
+# /* create ctags but human readable format */
+# cat TAGS_XREF | grep "xstrndup" | awk '{printf "%s:%s\n", $4, $3}'
+# /* print out file:line_num */
 
 # Start
 clear

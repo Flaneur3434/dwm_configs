@@ -93,7 +93,7 @@
      - Openssh
      - skippy-xd (dwm expand view)
      - FiraCode Font
-     -  https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+     - https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
      - Firejail
      - pavucontrol (pulseaudio volume control)
      - networkmanger / iwd
@@ -112,3 +112,4 @@
      - tlp (battery threshold setter)
      - lsix (ls for images in the terminal (only can be used on xterm))
      - ProFont (https://tobiasjung.name/profont/)
+     - Lynis (system security audit)
