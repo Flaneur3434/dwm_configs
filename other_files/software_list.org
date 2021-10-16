@@ -56,7 +56,7 @@
      - feh (for wallpaper)
      - sxiv (imageviewer)
      - ranger
-     - youtube-dl
+     - youtube-dl (yt-dlp is better now)
      - android-studio
      - mpv
      - zathura
