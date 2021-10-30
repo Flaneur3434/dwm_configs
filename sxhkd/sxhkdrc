@@ -1,6 +1,6 @@
 # http://xahlee.info/linux/linux_show_keycode_keysym.html
 #rofi
-super + o
+super + r
   ~/Documents/scripts/rofi_dwm.sh
 
 #Caprine
@@ -55,6 +55,10 @@ ctrl + shift + e
 #browser
 super + b
 	librewolf
+
+#chrome
+super + c
+	  chromium
 
 #Flameshot
 Print

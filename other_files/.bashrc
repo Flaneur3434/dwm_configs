@@ -157,16 +157,25 @@ gcc_w (){
     gcc -Wall -Wextra -Wformat-security -Wswitch-default $1 -o $output_file
 }
 
+# search
+s ()
+{
+	ls -a | grep -i -E "$1"
+}
+
 #youtube-dl
-alias yta-aac="youtube-dl --extract-audio --audio-format aac "
-alias yta-best="youtube-dl --extract-audio --audio-format best "
-alias yta-flac="youtube-dl --extract-audio --audio-format flac "
-alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
-alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
-alias yta-opus="youtube-dl --extract-audio --audio-format opus "
-alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
-alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+# alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+# alias yta-best="youtube-dl --extract-audio --audio-format best "
+# alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+# alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+# alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+# alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+# alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+# alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+# alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+alias youtube-dl="yt-dlp"
+
+
 
 #gpg
 #verify signature for isos
@@ -183,17 +192,19 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias dhelp='cat ~/Downloads/dwm/config.h'
 
 #list
-alias ls='exa'
-alias la='exa -alh -G --header --git'
-alias ll='ls -lh'
+# alias ls='exa'
+# alias la='exa -alh -G --header --git'
+# alias ll='ls -lh'
+alias ll='lc'
 
+# can pipe into more or something
+alias mn="man -P cat"
+
+alias bashtop="btop"
 by_size()
 {
     du -sm * | sort -nr | head -10 | awk '{printf "%.2fG\t", $1/1024; $1=""; print $0}'
 }
-
-# alias la='ls -a'
-# alias ll='ls -l'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias ftc_code='cd Documents/programming/Ultimate-Goal/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
@@ -206,20 +217,16 @@ alias running_service='systemctl list-units --type=service'
 alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
 alias diskstation='ssh ken_nc@192.168.1.49 -p22'
 alias ydown='cd ~/Videos/youtube'
+
 hive ()
 {
     read -e -p "Enter hive number: " hive_num
     ssh "cs61c-adt@hive${hive_num}.cs.berkeley.edu"
 }
 
-get_mem_pid ()
-{
-	ps -o pid,user,%mem,command ax | sort -b -k3 -r | grep "$1" | awk '{printf "%s G\t%s\n", $3/100*8, $4}'
-}
-
 mem_pid ()
 {
-	get_mem_pid $1 | awk -v name=$1 '{sum+=$1} END{printf "%sG\t%s\n", sum, name}'
+	top -b -n 1 | grep "$1" | awk '{printf "%s G\t%s\n", $10/100*8, $12}'
 }
 
 # alias rsync='rsync -avuz'
@@ -244,6 +251,12 @@ alias logisim='java -jar ../tools/logisim-evolution.jar'
 
 # alias xterm='tabbed xterm -into'
 alias em='emacsclient -c'
+alias 9term='9term rc'
+alias ac='acme-start.sh'
+9man ()
+{
+	walk /home/ken_nc/Downloads/websites/man.cat-v.org | grep "$1"
+}
 
 #cheatsheet
 # xdg-settings set default-web-browser brave-browser.desktop
@@ -264,14 +277,20 @@ alias em='emacsclient -c'
 # CTAGS search -------
 # ctags -f TAGS_XREF -R -x *
 # /* create ctags but human readable format */
-# cat TAGS_XREF | grep "xstrndup" | awk '{printf "%s:%s\n", $4, $3}'
-# /* print out file:line_num */
+# cat TAGS_XREF | grep "^object\s+" | awk '{printf "%s:%s\n", $4, $3}' | sort -d
+# /* print out file:line_num in dictionary order */
+
+# Aspell -------
+# aspell -l en_EN -c draft.txt
+# /* With this command, aspell will make an interactive display in the terminal */
 
 # Start
 clear
-echo "ken_ncです。よろしくお願いします。"
-echo "δωρεάν λαγουδάκι"
-echo "бесплатный кролик"
-echo "免費的兔子"
+# echo "ken_ncです。よろしくお願いします。"
+# echo "δωρεάν λαγουδάκι"
+# echo "бесплатный кролик"
+# echo "免費的兔子"
+# echo glenda gang 9 | figlet -f smslant
+figlet -f smslant "\$ whoami"
 echo ''
-cat ~/Documents/asciiArt/glenda
+# cat ~/Documents/asciiArt/glenda

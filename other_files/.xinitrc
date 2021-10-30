@@ -36,7 +36,14 @@ fi
 #xrandr --output eDP1 --mode 1920x1080 --pos 0x1079 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
 
 #square monitor
-xrandr --output eDP1 --mode 1920x1080 --pos 1280x1080 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP1-3 --mode 1280x1024 --pos 0x388 --rotate normal --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+# xrandr --output eDP1 --mode 1920x1080 --pos 1280x1080 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP1-3 --mode 1280x1024 --pos 0x388 --rotate normal --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
+
+#long style
+# xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x603 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --mode 1920x1080 --pos 0x0 --rotate left --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+
+#to the side
+xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --off --output DP2 --off --output DP2-1 --off --output DP2-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP2-3 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+
 
 # no laptop
 #xrandr --output eDP1 --off --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 1280x0 --rotate normal --output DP1-3 --mode 1280x1024 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off &
@@ -44,7 +51,7 @@ xrandr --output eDP1 --mode 1920x1080 --pos 1280x1080 --rotate normal --output D
 #feh --bg-center ~/Downloads/lain_stuff/wallpaper/damedame.jpg &
 #feh --bg-center ~/Pictures/Wallpapers/random/fumo.png &
 
-picom &
+picom --backend glx --vsync &
 
 xscreensaver &
 
