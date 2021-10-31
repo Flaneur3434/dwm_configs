@@ -23,6 +23,15 @@
 ** Tor
 *** Addons:
       - None
+** Ungoogled Chromium
+*** Addons
+		- Chromium Web Store
+		- ClearURLs
+		- Decentraleyes
+		- Enhancer for Youtube
+		- HTML5 Video speed controller
+		- uBlock Origin
+		- User-Agent Switcher and Manager
 * Programming
 ** nvim
 *** Addons
