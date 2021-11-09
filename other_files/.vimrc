@@ -1,0 +1,102 @@
+set number	"show line numbers
+set wildmenu	"enable a menu that shows tab completion options in the status bar
+set showmatch	"highlights matching brackets on cursor hover
+set ruler	"show cursor position in status bar
+set showcmd	"shows the normal mode command before it gets executed
+
+set encoding=utf-8
+set fileformats=unix,dos,mac
+
+set hlsearch	"highlights searches
+set incsearch	"incremental search (searches character by character)
+set ignorecase	"ignores the case of a search
+set smartcase	"only ignores case if there are no capital letters in search (only works after ignorecase has been set)
+
+set tabstop=4		"the amount of spaces that vim will equate to a tab character
+set softtabstop=4	"like tabstop, but for editing operations (insert mode)
+set shiftwidth=4	"used for autoindent and << and >> operators in normal mode
+set autoindent		"copies indent from current line to the next line
+set expandtab		"tabs will expand to whitespace characters
+
+set esckeys		"allows function keys to be recognized in Insert mode
+set ttimeoutlen=20	"timeout for a key code mapping
+set timeoutlen=1000	"time(ms) to wait for key mappings
+
+set clipboard+=autoselect
+
+syntax enable			"turn syntax highlighting on
+colorscheme pablo
+filetype plugin indent on	"load plugin and indent files associated a detected filetype
+runtime macros/matchit.vim	"allows jumping between brackets with % in normal mode
+
+augroup general
+    autocmd!
+    "keep equal proportions when windows resized
+    autocmd VimResized * wincmd =
+    "save cursor position in a file
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"")
+                \ <= line("$") | exe "normal! g'\"" | endif
+augroup END
+
+augroup languages
+    autocmd!
+    autocmd BufNewFile,BufRead *.bash set syntax=sh
+    autocmd FileType python xnoremap <leader>r <esc>:'<,'>:w !python3<CR>
+    autocmd FileType go set noexpandtab
+    autocmd FileType html :syntax sync fromstart
+    autocmd FileType html,javascript,css,json,yaml,sh
+                \ setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+":map       Normal, Visual and Operator-pending
+":vmap      Visual
+":nmap      Normal
+":omap      Operator-pending (Eg: dw where d is operator character and w is motion character)
+":map!      Insert and Command-line
+":imap      Insert
+":cmap      Command-line
+"nnoremap, xnoremap, cnoremap, inoremap, etc. prevent mapping recursively
+
+" Basic Movement
+noremap i <Up>
+noremap j <Left>
+noremap k <Down>
+noremap l <Right>
+noremap <space><space> <Insert>
+noremap ; $
+noremap h 0
+nnoremap e db 
+nnoremap r dw
+nnoremap o w
+nnoremap u b
+nnoremap s o<Esc>
+nnoremap S O<Esc>
+
+" Undo Redo
+noremap <C-e> <undo>
+noremap <space>u :bd<cr>
+
+" Commands
+nnoremap <Tab> :bnext<cr>
+nnoremap <space> :buffers<cr>
+nnoremap <space>f :Lexplore<cr>
+nnoremap <space>; :w<cr>
+
+" Copy and Paste
+xnoremap <C-c> "+y
+nnoremap <C-x> "+p
+
+" Window Commands
+noremap 4 :split<cr>
+noremap <space>4 :vsplit<cr>
+noremap 3 :close<cr> 
+noremap <space>3 :only<cr> 
+
+noremap wj <C-w>h
+noremap wl <C-w>l
+noremap wi <C-w>k
+noremap wk <C-w>j
+
+" CTAGS
+nnoremap <space>g <C-]>
+nnoremap <space>h <C-t>
