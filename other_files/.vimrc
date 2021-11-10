@@ -25,7 +25,7 @@ set timeoutlen=1000	"time(ms) to wait for key mappings
 set clipboard+=autoselect
 
 syntax enable			"turn syntax highlighting on
-colorscheme pablo
+colorscheme peachpuff 
 filetype plugin indent on	"load plugin and indent files associated a detected filetype
 runtime macros/matchit.vim	"allows jumping between brackets with % in normal mode
 
@@ -63,13 +63,14 @@ noremap j <Left>
 noremap k <Down>
 noremap l <Right>
 noremap <space><space> <Insert>
+inoremap <Home> <Esc>
 noremap ; $
 noremap h 0
+noremap u b
+noremap o w
 nnoremap e db 
 nnoremap r dw
-nnoremap o w
-nnoremap u b
-nnoremap s o<Esc>
+noremap s o<Esc>
 nnoremap S O<Esc>
 
 " Undo Redo
@@ -87,10 +88,10 @@ xnoremap <C-c> "+y
 nnoremap <C-x> "+p
 
 " Window Commands
-noremap 4 :split<cr>
-noremap <space>4 :vsplit<cr>
-noremap 3 :close<cr> 
-noremap <space>3 :only<cr> 
+noremap n :split<cr>
+noremap <space>n :vsplit<cr>
+noremap b :close<cr> 
+noremap <space>b :only<cr> 
 
 noremap wj <C-w>h
 noremap wl <C-w>l
@@ -100,3 +101,15 @@ noremap wk <C-w>j
 " CTAGS
 nnoremap <space>g <C-]>
 nnoremap <space>h <C-t>
+
+" Explore https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+" Keep the current directory and the browsing directory synced. 
+let g:netrw_keepdir = 0
+" Hide the banner
+" let g:netrw_banner = 0
+" Change copy command
+let g:netrw_localcopydircmd = 'cp -r'
+" Highlight marked files
+hi! link netrwMarkFile Search
+" Open Explore in the directory of current file
+nnoremap <space>m :Lexplore %:p:h<CR>
