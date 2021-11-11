@@ -67,6 +67,8 @@ noremap ; $
 noremap h 0
 noremap u b
 noremap o w
+noremap t v 
+noremap <C-t> <C-v>
 nnoremap e db 
 nnoremap r dw
 noremap s o<Esc>

@@ -38,7 +38,10 @@ Xterm*titeInhibit: true
 Xterm*tiXtraScroll: true
 
 !Fonts
-XTerm*vt100*faceName: xft:ProFontIIx:size=12:antialias=false
+XTerm.vt100.faceName: Liberation Mono:antialias=false
+XTerm.vt100.faceNameDoubleSize: HanaMinA
+XTerm.vt100.faceSize: 10 
+
 xterm*vt100*geometry: 80x50
 
 ! VT Font Menu: Unreadable

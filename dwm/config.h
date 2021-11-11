@@ -12,7 +12,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int statmonval         = 0;        /*Status Bar stays on the top screen*/
-static const char *fonts[]          = { "/usr/local/plan9/font/lucm/unicode.9.font:size=11" };
+static const char *fonts[]          = { "Liberation Mono:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
 static const char normbordercolor[] = "#cccccc";
