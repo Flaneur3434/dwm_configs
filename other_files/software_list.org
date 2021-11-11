@@ -83,7 +83,7 @@
      - sxhkd
      - arandr
      - xbacklight
-     - rofi (could be changed to dmenu)
+     - rofi(1.6.1) (could be changed to dmenu)
      - spaceFM
      - Vokoscreen (screen recorder)
      - GIMP
