@@ -67,10 +67,10 @@ backup ()
     recordings_src="/home/ken_nc/Videos/recordings/"
     recordings_dest="/volume2/backup/thinkpad_backup/kennc_Vid/recordings/"
 
-	desktop_src="/home/ken_nc/Desktop/"
+  	desktop_src="/home/ken_nc/Desktop/"
     desktop_dest="/volume2/backup/thinkpad_backup/kennc_Desktop/"
 
-	music_src="/home/ken_nc/Music/"
+  	music_src="/home/ken_nc/Music/"
     music_dest="/volume2/backup/thinkpad_backup/kennc_Music/"
 
     echo "Back Up Youtube"
@@ -91,14 +91,13 @@ backup ()
     echo "Back Up Recordings"
     echo "------------------------"
     rsync -avuz $recordings_src ken_nc@192.168.1.49:$recordings_dest
-	echo "Back Up Desktop"
+  	echo "Back Up Desktop"
     echo "------------------------"
     rsync -avuz $desktop_src ken_nc@192.168.1.49:$desktop_dest
-	echo "Back Up Music"
+  	echo "Back Up Music"
     echo "------------------------"
     rsync -avuz $music_src ken_nc@192.168.1.49:$music_dest
 }
-
 
 convert_img ()
 {
@@ -215,6 +214,7 @@ alias cs61c='cd Documents/programming/cs61c/'
 
 alias running_service='systemctl list-units --type=service'
 alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
+# alias diskstation='ssh -vvv ken_nc@192.168.1.49 -p22' # for debugging
 alias diskstation='ssh ken_nc@192.168.1.49 -p22'
 alias ydown='cd ~/Videos/youtube'
 
@@ -252,10 +252,32 @@ alias logisim='java -jar ../tools/logisim-evolution.jar'
 # alias xterm='tabbed xterm -into'
 alias em='emacsclient -c'
 alias 9term='9term rc'
-alias ac='acme-start.sh'
+alias acme2='acme-start.sh'
 9man ()
 {
 	walk /home/ken_nc/Downloads/websites/man.cat-v.org | grep "$1"
+}
+
+Ctags () 
+{
+  old_path="$PWD"
+
+  while [[ ! -f TAGS && "$PWD" != "$HOME" ]]; do
+      cd ..
+  done
+  
+  if [[ -f tags ]]; then
+      printf "\'tags\' file found in %s\n", $PWD 
+  else
+  	echo "could not find tag file in $old_path"
+    read -e -p "create tags?: " up
+
+    if [[ $up == "y" || $up == "Y" ]]; then
+      read -e -p "Language?: " lang
+      cd "$old_path"
+      ctags -f tags -R -n --languages="$lang" *
+    fi
+  fi
 }
 
 #cheatsheet
@@ -277,12 +299,23 @@ alias ac='acme-start.sh'
 # CTAGS search -------
 # ctags -f TAGS_XREF -R -x *
 # /* create ctags but human readable format */
-# cat TAGS_XREF | grep "^object\s+" | awk '{printf "%s:%s\n", $4, $3}' | sort -d
+# cat TAGS_XREF | grep "^object\s+" | awk '{printf "%s:%s\n", $4, $3}'
+# Plan9 Style
+# grep '^mailmap_entry' TAGS_XREF | awk '{printf "%s:%s\n", $4, $3}'
 # /* print out file:line_num in dictionary order */
 
 # Aspell -------
 # aspell -l en_EN -c draft.txt
 # /* With this command, aspell will make an interactive display in the terminal */
+
+# Diskstation
+# From the web browser
+# https://192.168.1.49:5001/
+
+# Pacman
+# sudo pacman -Rns $(pacman -Qtdq) - Remove orphan packages
+# sudo pacman -Scc - Remove package caches
+# yay -Scc - Remove package caches
 
 # Start
 clear
