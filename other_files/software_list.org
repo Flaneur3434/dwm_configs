@@ -123,3 +123,4 @@
      - Lynis (system security audit)
      - vim-clipboard
      - alsa-utils
+     - xclip
