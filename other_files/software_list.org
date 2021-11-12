@@ -1,4 +1,3 @@
-#+TITLE Software List
 * Web
 ** Librewolf
 *** Addons:
@@ -82,7 +81,7 @@
      - dunst
      - sxhkd
      - arandr
-     - xbacklight
+     - blight (like xbacklight but works) 
      - rofi(1.6.1) (could be changed to dmenu)
      - spaceFM
      - Vokoscreen (screen recorder)
@@ -122,3 +121,5 @@
      - lsix (ls for images in the terminal (only can be used on xterm))
      - ProFont (https://tobiasjung.name/profont/)
      - Lynis (system security audit)
+     - vim-clipboard
+     - alsa-utils
