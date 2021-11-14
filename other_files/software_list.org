@@ -6,64 +6,34 @@
       - Enhancer for Youtube
       - Facebook Container
       - Google Container
-      - HTTPS Everywhere
-      - School Loop Predictor
       - Tabliss
       - Timer
       - Ublock Origin
             + Uploaded Block List to Backup
       - User-Agent Switcher
       - Video Speed Controller
-      - Vimium
       - ClearURL
-** Brave
-*** Addons:
-      - None
-** Tor
-*** Addons:
-      - None
 ** Ungoogled Chromium
 *** Addons
 		- Chromium Web Store
 		- ClearURLs
-		- Decentraleyes
-		- Enhancer for Youtube
 		- HTML5 Video speed controller
 		- uBlock Origin
 		- User-Agent Switcher and Manager
 * Programming
-** nvim
-*** Addons
-     - NerdTree
-     - Auto-Pairs
-     - coc
-     - Airline
-     - css-color
-     - fzf
-     - vim-commentary
-     - vim-surround
-     - goyo
-     - LanguageClient-neovim
-     - utl
-     - tagbar
-     - vim-orgmode
-     - vim-SyntaxRange
-** VsCodium (nah...)
-** termite
-** urxvt
-** git
-** acme
-** plan9port
-** gnu debugger (gdb)
-** bash-completion
+        - vim-clipboard
+        - xterm
+        - git
+        - acme
+        - emacs
+        - plan9port
+        - gnu debugger (gdb)
 * b
-     - Session-Desktop-bin
      - Caprine
      - Discord
      - croc
      - feh (for wallpaper)
      - sxiv (imageviewer)
-     - ranger
      - youtube-dl (yt-dlp is better now)
      - android-studio
      - mpv
@@ -83,7 +53,6 @@
      - arandr
      - blight (like xbacklight but works) 
      - rofi(1.6.1) (could be changed to dmenu)
-     - spaceFM
      - Vokoscreen (screen recorder)
      - GIMP
      - Audacious
@@ -96,31 +65,19 @@
      - KeePassXC
      - bc
      - rg (grep but better)
-     - exa
-     - Ueberzug
-     - Openssh
      - skippy-xd (dwm expand view)
-     - FiraCode Font
-     - https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
      - Firejail
      - pavucontrol (pulseaudio volume control)
      - networkmanger / iwd
      - 91menu
      - imagemagick
      - ffmpeg
-     - scdl (https://github.com/flyingrub/scdl)
      - xpdf
-     - lemonbar (unixy status bar)
-     - Stalonetray (standalone system tray)
      - ncdu (find largest files)
-     - rmlint (rm empty directories and broken links)
      - cmus
      - tabbed
-     - powertop (power tuner)
      - tlp (battery threshold setter)
-     - lsix (ls for images in the terminal (only can be used on xterm))
-     - ProFont (https://tobiasjung.name/profont/)
-     - Lynis (system security audit)
-     - vim-clipboard
      - alsa-utils
      - xclip
+     - xorg-apps (xkill, ...)
+     - xcolor (https://github.com/Soft/xcolor)
