@@ -69,6 +69,8 @@ noremap u b
 noremap o w
 noremap t v 
 noremap <C-t> <C-v>
+noremap <kHome> <Esc>
+inoremap <kHome> <Esc>
 " this is need for some reason ...
 map e <nop>
 nnoremap e db 
