@@ -1,7 +1,5 @@
 [ -f ~/.profile ] && . ~/.profile
 
-set -o vi
-
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
@@ -19,6 +17,12 @@ fi
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
+
+# functions
+
+_checkexec() {
+	command -v "$1" > /dev/null
+}
 
 ex ()
 {
@@ -45,58 +49,185 @@ ex ()
   fi
 }
 
-backup ()
+#youtube-dl
+alias youtube-dl="yt-dlp"
+alias caprine='firejail --noprofile caprine'
+
+#gpg
+#verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+#receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+
+alias pacman='pacman --color auto'
+
+if _checkexec pacman; then
+    # General package management
+    alias pSyu="sudo pacman -Syu"   # system upgrade
+    alias pSyyu="sudo pacman -Syyu" # when updating mirrors
+    alias pD="sudo pacman -D"       # set `--asdeps` or `--asexplicit`
+
+    # Search remote database and download packages
+    alias pSs="pacman -Ss"      # search remote for package
+    alias pS="sudo pacman -S"   # sync download
+
+    # Search local database
+    alias pQs="pacman -Qs"      # query list
+    alias pQmq="pacman -Qmq"    # list foreign packages
+    alias pQdt="pacman -Qdt"    # list orphans
+
+    # Inspect packages (remote and local)
+    alias pSi="pacman -Si"      # remote package details
+    alias pQi="pacman -Qi"      # local package details
+
+    # Remove packages
+    alias pRs="sudo pacman -Rs"     # remove package
+    alias pRnsc="sudo pacman -Rnsc" # remove package recursively
+
+    # Clear cache
+    alias pScc='sudo pacman -Scc' #Cleanup orphaned packages
+    alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #Cleanup orphaned packages
+
+fi
+
+alias ll='9 ls -l'
+alias bashtop="btop"
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
+alias ftc='cd Documents/programming/Freight-Frenzy/'
+alias add_ftc='git add TeamCode/src/main/java/org/firstinspires/ftc/teamcode/'
+alias ydown='cd ~/Videos/youtube'
+
+alias running_service='systemctl list-units --type=service'
+
+alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
+
+# alias rsync='rsync -avuz'
+# alias diskstation='ssh -vvv ken_nc@192.168.1.49 -p22' # for debugging
+alias diskstation='ssh ken_nc@192.168.1.49 -p 22'
+alias moto='ssh ken_nc@192.168.1.97 -p 8022'
+alias Bind='sudo mount -t nfs 192.168.1.49:/volume2/backup /home/ken_nc/Documents/diskstation/'
+alias UnBind='sudo unmount /home/ken_nc/Documents/diskstation/'
+alias tpb='cd /home/ken_nc/Documents/diskstation/thinkpad_backup/'
+
+alias iftop='sudo iftop -i wlan0'
+alias yay='paru'
+
+alias gp='grep -i -E'
+alias blog='blog.sh'
+alias clock='plan9_clock'
+
+alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
+
+alias fetch='fm6000 -de none -o Arch'
+alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
+alias reset_clock='sudo timedatectl set-timezone UTC'
+
+alias pl='. 91plumber &>/dev/null'
+alias emda='emacs --daemon &'
+alias tar_gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
+alias notes='echo "/home/ken_nc/Documents/notes/linux_notes";echo; cat /home/ken_nc/Documents/notes/linux_notes'
+
+# alias xterm='tabbed xterm -into'
+alias em='devour emacsclient -c'
+alias 9term='9term rc'
+alias acme2='acme-start.sh'
+
+# Git commands
+# ------------
+
+if _checkexec git; then
+	export GIT_EDITOR="$EDITOR"
+
+	# add, commit
+	alias gadd='git add -v'
+	alias gaddp='git add --patch'
+	alias gaddi='git add --interactive'
+	alias gall='git add -Av'
+	alias gcom='git commit' # opens in the predefined editor.
+	alias gcomm='git commit -m' # pass a message directly: gcomm 'My commit'
+	alias gca='git commit --amend'
+	alias grh='git reset HEAD'
+
+	# stats and diffs
+	alias gsh='git show'
+	alias gsho='git show --oneline'
+	alias glo='git log --oneline'
+	alias glog='git log'
+	alias gsta='git status'
+	alias gstat='git status'
+	alias gdif='git diff'
+	alias gdiff='git diff'
+	alias gdifs='git diff --stat --summary'
+	alias gdiffss='git diff --stat --summary'
+
+	# branching
+	alias gch='git checkout'
+	alias gchb='git checkout -b'
+	alias gbd='git branch -d'
+	alias gbl='git branch --list'
+	alias gpd='git push origin --delete'
+	alias gmerg='git merge --edit --stat'
+	alias gmerge='git merge --edit --stat'
+
+	# tagging
+	alias gtag='git tag --sign' # followed by the tag's name
+	alias gtagl='git tag --list'
+
+	# syncing
+	alias gpull='git pull'
+	alias gfetch='git fetch'
+	alias gpm='git push -u origin master'
+	alias gph='git push -u origin HEAD'
+fi
+
+9man ()
 {
-    # read -e -p "src: " src_dir
-    # read -e -p "dest: " dest_dir
-    youtube_src="/home/ken_nc/Videos/youtube/"
-    youtube_dest="/volume2/backup/thinkpad_backup/kennc_Vid/youtube/"
+	walk /home/ken_nc/Downloads/websites/man.cat-v.org | gp "$1"
+}
 
-    document_src="/home/ken_nc/Documents/"
-    document_dest="/volume2/backup/thinkpad_backup/kennc_Doc/"
+Ctags ()
+{
+  old_path="$PWD"
 
-    download_src="/home/ken_nc/Downloads/"
-    download_dest="/volume2/backup/thinkpad_backup/kennc_Down/"
+  while [[ ! -f TAGS && "$PWD" != "$HOME" ]]; do
+      cd ..
+  done
 
-    picture_src="/home/ken_nc/Pictures/"
-    picture_dest="/volume2/backup/thinkpad_backup/kennc_Pic/"
+  if [[ -f tags ]]; then
+      printf "\'tags\' file found in %s\n", $PWD
+  else
+  	echo "could not find tag file in $old_path"
+    read -e -p "create tags?: " up
 
-    meme_src="/home/ken_nc/Videos/Memes/"
-    meme_dest="/volume2/backup/thinkpad_backup/kennc_Vid/Memes/"
+    if [[ $up == "y" || $up == "Y" ]]; then
+      read -e -p "Language?: " lang
+      cd "$old_path"
+      ctags -f tags -R -n --languages="$lang" *
+    fi
+  fi
+}
 
-    recordings_src="/home/ken_nc/Videos/recordings/"
-    recordings_dest="/volume2/backup/thinkpad_backup/kennc_Vid/recordings/"
+hive ()
+{
+    read -e -p "Enter hive number: " hive_num
+    ssh "cs61c-adt@hive${hive_num}.cs.berkeley.edu"
+}
 
-  	desktop_src="/home/ken_nc/Desktop/"
-    desktop_dest="/volume2/backup/thinkpad_backup/kennc_Desktop/"
+mem_pid ()
+{
+	top -b -n 1 | gp "$1" | awk '{printf "%s G\t%s\n", $10/100*8, $12}'
+}
 
-  	music_src="/home/ken_nc/Music/"
-    music_dest="/volume2/backup/thinkpad_backup/kennc_Music/"
+by_size()
+{
+    du -sm * | sort -nr | head -10 | awk '{printf "%.2fG\t", $1/1024; $1=""; print $0}'
+}
 
-    echo "Back Up Youtube"
-    echo "------------------------"
-    rsync -avuz $youtube_src ken_nc@192.168.1.49:$youtube_dest
-    echo "Back Up Memes"
-    echo "------------------------"
-    rsync -avuz $meme_src ken_nc@192.168.1.49:$meme_dest
-    echo "Back Up Documents"
-    echo "------------------------"
-    rsync -avuz $document_src ken_nc@192.168.1.49:$document_dest
-    echo "Back Up Downloads"
-    echo "------------------------"
-    rsync -avuz $download_src ken_nc@192.168.1.49:$download_dest
-    echo "Back Up Pictures"
-    echo "------------------------"
-    rsync -avuz $picture_src ken_nc@192.168.1.49:$picture_dest
-    echo "Back Up Recordings"
-    echo "------------------------"
-    rsync -avuz $recordings_src ken_nc@192.168.1.49:$recordings_dest
-  	echo "Back Up Desktop"
-    echo "------------------------"
-    rsync -avuz $desktop_src ken_nc@192.168.1.49:$desktop_dest
-  	echo "Back Up Music"
-    echo "------------------------"
-    rsync -avuz $music_src ken_nc@192.168.1.49:$music_dest
+s ()
+{
+	9 ls | gp "$1"
 }
 
 convert_img ()
@@ -109,7 +240,7 @@ convert_img ()
         cd $directory
     fi
     # magick mogrify -format JPEG -path OUTPUT *.webp
-    if [[ $(ls | grep -c "$i_format$") -ge 1 ]]; then
+    if [[ $(ls | gp -c "$i_format$") -ge 1 ]]; then
         printf "Stand by ...\n"
         magick mogrify -format $o_format *.$i_format
         rm *.$i_format
@@ -156,194 +287,9 @@ gcc_w (){
     gcc -Wall -Wextra -Wformat-security -Wswitch-default $1 -o $output_file
 }
 
-# search
-s ()
-{
-	ls -a | grep -i -E "$1"
+java-doc () {
+  # openjdk-doc
+  walk /usr/share/doc/java-openjdk/api | gp "$1"
 }
 
-#youtube-dl
-# alias yta-aac="youtube-dl --extract-audio --audio-format aac "
-# alias yta-best="youtube-dl --extract-audio --audio-format best "
-# alias yta-flac="youtube-dl --extract-audio --audio-format flac "
-# alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
-# alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
-# alias yta-opus="youtube-dl --extract-audio --audio-format opus "
-# alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
-# alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-# alias ytv-best="youtube-dl -f bestvideo+bestaudio "
-alias youtube-dl="yt-dlp"
-
-
-
-#gpg
-#verify signature for isos
-alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
-#receive the key of a developer
-alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
-
-alias vi=nvim
-
-alias pacman='pacman --color auto'
-#Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-alias dhelp='cat ~/Downloads/dwm/config.h'
-
-#list
-# alias ls='exa'
-# alias la='exa -alh -G --header --git'
-# alias ll='ls -lh'
-alias ll='lc'
-
-# can pipe into more or something
-alias mn="man -P cat"
-
-alias bashtop="btop"
-by_size()
-{
-    du -sm * | sort -nr | head -10 | awk '{printf "%.2fG\t", $1/1024; $1=""; print $0}'
-}
-
-## Colorize the grep command output for ease of use (good for log files)##
-alias ftc_code='cd Documents/programming/Ultimate-Goal/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
-alias ftc='cd Documents/programming/Ultimate-Goal/'
-alias website='cd Documents/programming/html/school_website'
-alias colortest='./Downloads/color-scripts/color-scripts/colortest'
-alias cs61c='cd Documents/programming/cs61c/'
-
-alias running_service='systemctl list-units --type=service'
-alias time_table='feh ~/Pictures/screenshots/time_table.jpg'
-# alias diskstation='ssh -vvv ken_nc@192.168.1.49 -p22' # for debugging
-alias diskstation='ssh ken_nc@192.168.1.49 -p22'
-alias ydown='cd ~/Videos/youtube'
-
-hive ()
-{
-    read -e -p "Enter hive number: " hive_num
-    ssh "cs61c-adt@hive${hive_num}.cs.berkeley.edu"
-}
-
-mem_pid ()
-{
-	top -b -n 1 | grep "$1" | awk '{printf "%s G\t%s\n", $10/100*8, $12}'
-}
-
-# alias rsync='rsync -avuz'
-
-alias iftop='sudo iftop -i wlan0'
-alias yay='paru'
-
-alias grep='grep -i -E'
-alias blog='blog.sh'
-alias clock='plan9_clock'
-
-alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
-
-alias fetch='fm6000 -de none -o Arch'
-alias colortest='~/Downloads/color-scripts/color-scripts/colortest'
-alias reset_clock='sudo timedatectl set-timezone UTC'
-
-alias pl='. 91plumber'
-alias tar_gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
-
-alias logisim='java -jar ../tools/logisim-evolution.jar'
-
-# alias xterm='tabbed xterm -into'
-alias em='emacsclient -c'
-alias 9term='9term rc'
-alias acme2='acme-start.sh'
-9man ()
-{
-	walk /home/ken_nc/Downloads/websites/man.cat-v.org | grep "$1"
-}
-
-Ctags () 
-{
-  old_path="$PWD"
-
-  while [[ ! -f TAGS && "$PWD" != "$HOME" ]]; do
-      cd ..
-  done
-  
-  if [[ -f tags ]]; then
-      printf "\'tags\' file found in %s\n", $PWD 
-  else
-  	echo "could not find tag file in $old_path"
-    read -e -p "create tags?: " up
-
-    if [[ $up == "y" || $up == "Y" ]]; then
-      read -e -p "Language?: " lang
-      cd "$old_path"
-      ctags -f tags -R -n --languages="$lang" *
-    fi
-  fi
-}
-
-#cheatsheet
-# xdg-settings set default-web-browser brave-browser.desktop
-# xdg-settings set default-web-browser librewolf.desktop
-
-# rsync ~/Videos/Memes ken_nc@192.168.1.47:/volume2/backup/thinkpad_backup/Memes
-# scp volume2/backup/thinkpad_backup/Memes ken_nc@192.168.1.45:~/Videos/Memes/
-
-# memory usage -------
-# ps -o pid,user,%mem,command ax | sort -b -k3 -r | grep "btop" | awk '{printf "%s G\t%s\n", $3*8, $4}'
-# /* get the memory useage of a specific prossess, in this case btop */
-
-# find files -------
-# walk ~/Documents/programming/C | grep '\.c$' | xargs g '^main'
-# /* find all files that end with .c in ~/Documents/programming/C and print the file and the line number with the pattern '^main'
-# walk | grep "\.\/[a-zA-Z0-9]*" | xargs cat
-
-# CTAGS search -------
-# ctags -f TAGS_XREF -R -x *
-# /* create ctags but human readable format */
-# cat TAGS_XREF | grep "^object\s+" | awk '{printf "%s:%s\n", $4, $3}'
-# Plan9 Style
-# grep '^mailmap_entry' TAGS_XREF | awk '{printf "%s:%s\n", $4, $3}'
-# /* print out file:line_num in dictionary order */
-
-# Aspell -------
-# aspell -l en_EN -c draft.txt
-# /* With this command, aspell will make an interactive display in the terminal */
-
-# Diskstation
-# From the web browser
-# https://192.168.1.49:5001/
-
-# Pacman
-# sudo pacman -Rns $(pacman -Qtdq) - Remove orphan packages
-# sudo pacman -Scc - Remove package caches
-# yay -Scc - Remove package caches
-
-# iwctl connect to wifi
-# ip link set wlan0 up
-# station wlan0 scan
-# station wlan0 get-networks
-# station wlan0 connect HOME-16EC-5
-# DO Staff: Educati0n!!
-
-# NetworkManager connect to wifi
-# You can't use iwctl+dhcpcd and Network Manager at the same time
-# sudo systemctl start NetworkManager.service
-# sudo systemctl start systemd-resolved.service
-# use nm-applet to connect to wifi
-
-# TLP (battery saver)
-# get tlp.conf from github
-# run sudo tlp start
-# And look at the errors
-
-# NFS mounting
-# sudo mount 192.168.1.49:/volume2/backup /home/ken_nc/Documents/diskstation/
-
-clear
-# echo "ken_ncです。よろしくお願いします。"
-# echo "δωρεάν λαγουδάκι"
-# echo "бесплатный кролик"
-# echo "免費的兔子"
-# echo glenda gang 9 | figlet -f smslant
 figlet -f smslant "\$ whoami"
-echo ''
-# cat ~/Documents/asciiArt/glenda

@@ -24,27 +24,24 @@ xterm*pointerColorBackground: #e4e4e4
 xterm*pointerShape: left_ptr
 
 !! XTERM settings
-XTerm.vt100.locale: false
-XTerm.vt100.utf8: true
-XTerm*saveLines:   5000
-
-! Scroll when any key is pressed
-XTerm*ScrollKey: true
-XTerm*scrollttyoutput: false
-XTerm*ScrollTTYKeypress: true
+xterm*locale: false
+xterm*utf8: true
+xterm*utf8Fonts: always
+xterm*saveLines:   5000
+! xterm*loginShell: true
 
 ! Opens terminal programs like less, more, vi in a seperate buffer
-Xterm*titeInhibit: true
-Xterm*tiXtraScroll: true
+xterm*titeInhibit: true
+xterm*tiXtraScroll: true
 
 !Fonts
-! XTerm.vt100.faceName: Liberation Mono:antialias=false
+!xterm*faceName: Liberation Mono:antialias=false
 
-XTerm.vt100.faceName: Source Code Variable:style=Regular:antialias=false
-XTerm.vt100.faceNameDoubleSize: Source Han Sans JP
-XTerm.vt100.faceSize: 14 
+xterm*faceName: Source Code Variable:style=Regular:antialias=false
+xterm*faceNameDoubleSize: Source Han Sans JP
+xterm*faceSize: 14
 
-xterm*vt100*geometry: 80x50
+xterm*geometry: 80x50
 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 8
@@ -57,17 +54,14 @@ xterm*faceSize4: 16
 ! VT font menu: Huge
 xterm*faceSize5: 22
 
-! Allow sixel graphics.
-xterm*decTerminalID	:	vt340
-
 ! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
-XTerm*selectToClipboard: true
-! ## Select text ##
-XTerm*highlightSelection: true
+xterm*selectToClipboard: true
+xterm*highlightSelection: true
 ! Remove trailing spaces
-XTerm*trimSelection: truee
+xterm*trimSelection: truee
+
 ! ## Keybindings ##
-XTerm.vt100.translations: #override \n\
+xterm*translations: #override \n\
   Ctrl <Key> minus: smaller-vt-font() \n\
   Ctrl <Key> plus: larger-vt-font() \n\
   Ctrl <Key> 0: set-vt-font(d) \n\
@@ -75,25 +69,20 @@ XTerm.vt100.translations: #override \n\
   Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
   Shift <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY) \n\
   <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
-  <Btn2Up>: insert-selection(PRIMARY) \n\
-  <Key>Home: string("0x1b") string("[7~") \n\
-  <Key>End: string("0x1b") string("[8~")
+  <Btn2Up>: insert-selection(PRIMARY)
 
-! disable fullscreen hotkey alt+enter (hotkey conflicts with weechat, midnight commander ...etc)
-XTerm*fullscreen: never
-! enable alt key to work
-XTerm*metaSendsEscape: true
+xterm*fullscreen: never
 ! Fix the backspace key (for Emacs)
-XTerm.vt100.backarrowKey: false
-XTerm.ttyModes: erase ^?
+xterm*backarrowKey: false
+xterm*ttyModes: erase ^?
 
 ! No automatic srolling
-XTerm.scrollTtyOutput: false
-
+xterm*scrollTtyOutput: true
+xterm*scrollTtyKeypress: true
 
 ! double-click to select whole URLs :D
 ! https://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/
-XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 !! Rofi Settings
 rofi.color-enabled:	true
@@ -131,6 +120,3 @@ XLoad*update: 				5
 XLoad*highlight: 			#98d1ce
 XLoad*jumpscroll: 			1
 XLoad*font: 				-artwiz-snap-normal-r-normal--10-100-75-75-p-90-iso10646-1
-
-
-

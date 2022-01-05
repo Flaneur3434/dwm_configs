@@ -25,7 +25,7 @@ set timeoutlen=1000	"time(ms) to wait for key mappings
 set clipboard+=autoselect
 
 syntax enable			"turn syntax highlighting on
-colorscheme peachpuff 
+colorscheme peachpuff
 filetype plugin indent on	"load plugin and indent files associated a detected filetype
 runtime macros/matchit.vim	"allows jumping between brackets with % in normal mode
 
@@ -35,7 +35,7 @@ augroup general
     autocmd VimResized * wincmd =
     "save cursor position in a file
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"")
-                \ <= line("$") | exe "normal! g'\"" | endif
+              \ <= line("$") | exe "normal! g'\"" | endif
 augroup END
 
 augroup languages
@@ -58,40 +58,49 @@ augroup END
 "nnoremap, xnoremap, cnoremap, inoremap, etc. prevent mapping recursively
 
 " Basic Movement
-noremap i <Up>
-noremap j <Left>
-noremap k <Down>
-noremap l <Right>
-noremap <space><space> <Insert>
+nnoremap i <Up>
+nnoremap j <Left>
+nnoremap k <Down>
+nnoremap l <Right>
+vnoremap i <Up>
+vnoremap j <Left>
+vnoremap k <Down>
+vnoremap l <Right>
+
+nnoremap <space><space> <Insert>
+
 noremap ; $
 noremap h 0
+
 noremap u b
 noremap o w
-noremap t v 
+noremap e db
+noremap r dw
+
+noremap t v
 noremap <C-t> <C-v>
-noremap <C-s> /
+
+noremap s o<Esc>
+noremap S O<Esc>
+
 noremap! <kHome> <Esc>
 inoremap <kHome> <Esc>
 vnoremap <kHome> <Esc>
-" this is need for some reason ...
-map e <nop>
-nnoremap e db 
-nnoremap r dw
-noremap s o<Esc>
-nnoremap S O<Esc>
+
+noremap <C-s> /
 
 " Undo Redo
 noremap <C-e> <undo>
 noremap <space>u :bd<cr>
 
 " Commands
-nnoremap <Tab> :bnext<cr>
-nnoremap <space>f :Lexplore<cr>
-nnoremap <space>; :w<cr>
-" Open Explore in the directory of current file
-nnoremap <space>m :Lexplore %:p:h<CR>
-noremap <silent> <space>b :ls<CR>:b<Space>
-noremap <C-c>f :browse oldfiles<CR>
+nnoremap <Tab> :bnext<CR> " move to next buffer
+nnoremap <space>; :wa<CR>
+nnoremap <space>m :Lexplore %:p:h<CR> " Open Explore in the directory of current file
+noremap <silent> <space>f :ls<CR>:b<Space> " Open buffer list and select a number
+noremap <C-c>f :browse oldfiles<CR> " Open a recent file list and select a file
+noremap <C-c>q :q!<CR>
+noremap <f3> :nohl<CR>
 
 " Copy and Paste
 xnoremap <C-c> "+y
@@ -100,8 +109,8 @@ nnoremap <C-x> "+p
 " Window Commands
 noremap ws :split<cr>
 noremap wv :vsplit<cr>
-noremap wc :close<cr> 
-noremap wo :only<cr> 
+noremap wc :close<cr>
+noremap wo :only<cr>
 
 noremap wj <C-w>h
 noremap wl <C-w>l
@@ -114,7 +123,7 @@ nnoremap <space>g <C-]>
 nnoremap <space>h <C-t>
 
 " Explore https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
-" Keep the current directory and the browsing directory synced. 
+" Keep the current directory and the browsing directory synced.
 let g:netrw_keepdir = 0
 " Hide the banner
 " let g:netrw_banner = 0
@@ -122,6 +131,44 @@ let g:netrw_keepdir = 0
 let g:netrw_localcopydircmd = 'cp -r'
 " Highlight marked files
 hi! link netrwMarkFile Search
+function! NetrwMapping()
+endfunction
+
+" make function run automatically when netrw file type is opened
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+  nnoremap <buffer> i <Up>
+  nnoremap <buffer> j <Left>
+  nnoremap <buffer> k <Down>
+  nnoremap <buffer> l <Right>
+  nnoremap <buffer> ^ -^ 
+  " file management
+  nnoremap <silent> <buffer> c :!touch untitled.txt<CR> 
+  nnoremap <silent> <buffer> <space>m :bd<CR>
+endfunction
 
 " Completion
 " C-x C-n
+
+" Pluggin
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/jceb/vim-orgmode'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-surround'
+call plug#end()
+
+" --- vim-commentary ---
+" gcc - comments out a line
+" gcap - comments out a paragraph
+" gc (in visual mode) - comment out the selection
+
+" --- vim-surround ---
+" cs"' - change "hello world" -> 'hello world'
+" yss" - change hello world -> "hello world"
+" ysiw) (with cursor on hello) - change hello world -> (hello) world
+" ds" - change "hello world" -> hello world
+

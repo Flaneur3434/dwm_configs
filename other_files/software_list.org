@@ -51,7 +51,7 @@
      - dunst
      - sxhkd
      - arandr
-     - blight (like xbacklight but works) 
+     - blight (like xbacklight but works)
      - rofi(1.6.1) (could be changed to dmenu)
      - Vokoscreen (screen recorder)
      - GIMP
@@ -81,3 +81,7 @@
      - xclip
      - xorg-apps (xkill, ...)
      - xcolor (https://github.com/Soft/xcolor)
+     - tpacpi-bat instead pf tp_smapi
+     - mupdf-gl (zathura doesnt work for some stuff)
+     - xchm (read chm files)
+     - xdo (swallow for all window mangagers)
