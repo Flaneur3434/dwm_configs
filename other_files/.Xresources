@@ -40,6 +40,7 @@ xterm*tiXtraScroll: true
 xterm*faceName: Source Code Variable:style=Regular:antialias=false
 xterm*faceNameDoubleSize: Source Han Sans JP
 xterm*faceSize: 14
+xterm*internalBorder: 8
 
 xterm*geometry: 80x50
 
