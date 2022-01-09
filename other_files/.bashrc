@@ -102,6 +102,7 @@ alias ydown='cd ~/Videos/youtube'
 alias running_service='systemctl list-units --type=service'
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
+alias dfc='dfc -d'
 
 # alias rsync='rsync -avuz'
 # alias diskstation='ssh -vvv ken_nc@192.168.1.49 -p22' # for debugging
