@@ -116,6 +116,8 @@ alias iftop='sudo iftop -i wlan0'
 alias yay='paru'
 
 alias gp='grep -i -E'
+alias ngp='grep -v -i'
+# ngp 'git\|apue\|done\|received\|Freight-Frenzy\|sender\|actualDocuments' /tmp/rsync-log-file.txt
 alias blog='blog.sh'
 alias clock='plan9_clock'
 
@@ -131,7 +133,7 @@ alias tar_gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
 alias notes='echo "/home/ken_nc/Documents/notes/linux_notes";echo; cat /home/ken_nc/Documents/notes/linux_notes'
 
 # alias xterm='tabbed xterm -into'
-alias em='devour emacsclient -c'
+alias em='sw emacsclient -c'
 alias 9term='9term rc'
 alias acme2='acme-start.sh'
 
