@@ -164,6 +164,7 @@ if _checkexec git; then
 	alias gdiff='git diff'
 	alias gdifs='git diff --stat --summary'
 	alias gdiffss='git diff --stat --summary'
+	alias gwc='git whatchanged'
 
 	# branching
 	alias gch='git checkout'
