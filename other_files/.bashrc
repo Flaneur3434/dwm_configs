@@ -129,6 +129,7 @@ alias reset_clock='sudo timedatectl set-timezone UTC'
 
 alias pl='. 91plumber &>/dev/null'
 alias emda='emacs --daemon &'
+alias all-img='sxiv -p *'
 alias tar_gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
 alias notes='echo "/home/ken_nc/Documents/notes/linux_notes";echo; cat /home/ken_nc/Documents/notes/linux_notes'
 
