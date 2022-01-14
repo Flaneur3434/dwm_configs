@@ -24,8 +24,7 @@ xterm*pointerColorBackground: #e4e4e4
 xterm*pointerShape: left_ptr
 
 !! XTERM settings
-xterm*locale: false
-xterm*utf8: true
+xterm*locale: true
 xterm*utf8Fonts: always
 xterm*saveLines:   5000
 ! xterm*loginShell: true
@@ -35,11 +34,10 @@ xterm*titeInhibit: true
 xterm*tiXtraScroll: true
 
 !Fonts
-!xterm*faceName: Liberation Mono:antialias=false
-
-xterm*faceName: Source Code Variable:style=Regular:antialias=false
+xterm*faceName: Misc Tamsyn:style=Regular
+! xterm*faceName: ypn envypn:style=Regular
 xterm*faceNameDoubleSize: Source Han Sans JP
-xterm*faceSize: 14
+xterm*faceSize: 15
 xterm*internalBorder: 8
 
 xterm*geometry: 80x50
@@ -76,6 +74,8 @@ xterm*fullscreen: never
 ! Fix the backspace key (for Emacs)
 xterm*backarrowKey: false
 xterm*ttyModes: erase ^?
+! use only the internal emacs input method
+Emacs.useXIM: off
 
 ! No automatic srolling
 xterm*scrollTtyOutput: true

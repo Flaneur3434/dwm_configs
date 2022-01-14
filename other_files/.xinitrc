@@ -43,7 +43,7 @@ skippy-xd --start-daemon &
 sxhkd &
 flameshot &
 nm-applet &
-emacs --daemon &
+emacs --fg-daemon &
 
 ibus
  export GTK_IM_MODULE=ibus
@@ -68,4 +68,5 @@ xset -dpms # Turns on display power management signaling (+dpms to turn on)
 # exec startlxde
 
 # XFCE4
+ls /home/ken_nc/.cache/sessions/ | grep "thinnpad" | xargs rm -f 2>/dev/null
 exec startxfce4
