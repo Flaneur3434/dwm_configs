@@ -85,3 +85,4 @@
      - mupdf-gl (zathura doesnt work for some stuff)
      - xchm (read chm files)
      - xdo (swallow for all window mangagers)
+     - mpd & ncmpcpp & mpc (music server + terminal client + server command bindings)
