@@ -27,17 +27,12 @@ xterm*pointerShape: left_ptr
 xterm*locale: true
 xterm*utf8Fonts: always
 xterm*saveLines:   5000
-! xterm*loginShell: true
-
-! Opens terminal programs like less, more, vi in a seperate buffer
-xterm*titeInhibit: true
-xterm*tiXtraScroll: true
 
 !Fonts
-xterm*faceName: Misc Tamsyn:style=Regular
-! xterm*faceName: ypn envypn:style=Regular
+! xterm*faceName: mononoki:style=Regular
+xterm*faceName: JetBrains Mono:style=Regular
 xterm*faceNameDoubleSize: Source Han Sans JP
-xterm*faceSize: 15
+xterm*faceSize: 12
 xterm*internalBorder: 8
 
 xterm*geometry: 80x50
