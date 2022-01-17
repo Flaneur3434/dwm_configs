@@ -50,7 +50,7 @@ ex ()
 }
 
 #youtube-dl
-alias youtube-dl="yt-dlp"
+alias youtube="youtube-mp3-tag-editor"
 alias caprine='firejail --noprofile caprine'
 
 #gpg
@@ -300,3 +300,6 @@ java-doc () {
 }
 
 figlet -f smslant "\$ whoami"
+
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash

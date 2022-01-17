@@ -77,6 +77,11 @@ noremap o w
 noremap e db
 noremap r dw
 
+noremap <space>n G
+noremap <space>h gg
+
+noremap <space>b <C-o>
+
 noremap t v
 noremap <C-t> <C-v>
 
