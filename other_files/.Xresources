@@ -19,40 +19,42 @@
 *color14:  #262626
 *color15:  #000000
 
-! Xterm cursor
-xterm*pointerColorBackground: #e4e4e4
-xterm*pointerShape: left_ptr
+! cursor
+*pointerColorBackground: #e4e4e4
+*pointerShape: left_ptr
 
-!! XTERM settings
-xterm*locale: true
-xterm*utf8Fonts: always
-xterm*saveLines:   5000
+! UTF-8
+*locale: true
+*utf8Fonts: always
+*eightBitInput: false
+
 
 !Fonts
-! xterm*faceName: mononoki:style=Regular
-xterm*faceName: JetBrains Mono:style=Regular
-xterm*faceNameDoubleSize: Source Han Sans JP
-xterm*faceSize: 12
-xterm*internalBorder: 8
-
-xterm*geometry: 80x50
-
-! VT Font Menu: Unreadable
-xterm*faceSize1: 8
-! VT font menu: Tiny
-xterm*faceSize2: 10
-! VT font menu: Medium
-xterm*faceSize3: 12
-! VT font menu: Large
-xterm*faceSize4: 16
-! VT font menu: Huge
-xterm*faceSize5: 22
+*faceName: JetBrains Mono:style=Regular
+*faceNameDoubleSize: Source Han Sans JP
+*faceSize: 12
 
 ! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
-xterm*selectToClipboard: true
-xterm*highlightSelection: true
+*selectToClipboard: true
+*highlightSelection: true
+
 ! Remove trailing spaces
-xterm*trimSelection: truee
+*trimSelection: true
+
+xterm*internalBorder: 8
+xterm*geometry: 80x50
+xterm*saveLines:   5000
+xterm*fastScroll: true
+xterm*scrollBar: false
+
+xterm*faceSize1: 8
+xterm*faceSize2: 10
+xterm*faceSize3: 12
+xterm*faceSize4: 16
+xterm*faceSize5: 22
+
+xterm*scrollTtyOutput: true
+xterm*scrollTtyKeypress: true
 
 ! ## Keybindings ##
 xterm*translations: #override \n\
@@ -71,10 +73,6 @@ xterm*backarrowKey: false
 xterm*ttyModes: erase ^?
 ! use only the internal emacs input method
 Emacs.useXIM: off
-
-! No automatic srolling
-xterm*scrollTtyOutput: true
-xterm*scrollTtyKeypress: true
 
 ! double-click to select whole URLs :D
 ! https://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/
