@@ -23,7 +23,7 @@ alias ftc='cd Documents/programming/Freight-Frenzy/'
 alias tpb='cd /home/ken_nc/Documents/diskstation/thinkpad_backup/'
 alias ydown='cd ~/Videos/youtube'
 
-alias pl='. 91plumber &>/dev/null'
+alias pl='. 91plumber'
 alias blog='blog.sh'
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"

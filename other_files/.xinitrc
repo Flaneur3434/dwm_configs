@@ -58,8 +58,8 @@ xset s off # Disable screen saver blinking
 xset -dpms # Turns on display power management signaling (+dpms to turn on)
 
 # DWM
-# slstatus &
-# exec dwm
+slstatus &
+exec dwm
 
 # CTWM
 #xclock &
@@ -71,4 +71,4 @@ xset -dpms # Turns on display power management signaling (+dpms to turn on)
 # exec startlxde
 
 # XFCE4
-exec startxfce4
+# exec startxfce4
