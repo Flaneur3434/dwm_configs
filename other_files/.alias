@@ -99,7 +99,7 @@ if _checkexec git; then
 	alias gsta='git status'
 	alias gstat='git status'
 	alias gdif='git diff'
-	alias gdiff='git diff'
+	alias gdifc='git diff --cached'
 	alias gdifs='git diff --stat --summary'
 	alias gdiffss='git diff --stat --summary'
 	alias gwc='git whatchanged'
