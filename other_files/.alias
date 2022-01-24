@@ -12,10 +12,10 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-# alias diskstation='ssh -vvv ken_nc@192.168.1.49 -p22' # for debugging
-alias diskstation='ssh ken_nc@192.168.1.49 -p 22'
+# alias diskstation='ssh -vvv ken_nc@192.168.1.115 -p22' # for debugging
+alias diskstation='ssh ken_nc@192.168.1.115 -p 22'
 alias moto='ssh ken_nc@192.168.1.97 -p 8022'
-alias Bind='sudo mount -t nfs 192.168.1.49:/volume2/backup /home/ken_nc/Documents/diskstation/'
+alias Bind='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/diskstation/'
 alias UnBind='sudo unmount /home/ken_nc/Documents/diskstation/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
