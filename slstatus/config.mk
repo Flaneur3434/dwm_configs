@@ -18,7 +18,7 @@ X11LIB = /usr/X11R6/lib
 CPPFLAGS = -I$(X11INC) -D_DEFAULT_SOURCE
 CFLAGS   = -std=c99 -pedantic -Wall -Wextra -Os
 LDFLAGS  = -L$(X11LIB) -s
-LDLIBS   = -lX11
+LDLIBS   = -lX11 -lmpdclient
 
 #FreeBSD
 #LDLIBS   = -lX11 -lkvm
