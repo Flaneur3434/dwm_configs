@@ -20,8 +20,6 @@ alias UnBind='sudo unmount /home/ken_nc/Documents/diskstation/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
 alias ftc='cd Documents/programming/Freight-Frenzy/'
-alias tpb='cd /home/ken_nc/Documents/diskstation/thinkpad_backup/'
-alias ydown='cd ~/Videos/youtube'
 
 alias pl='. 91plumber'
 alias blog='blog.sh'
@@ -30,7 +28,7 @@ alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
 alias reset_clock='sudo timedatectl set-timezone UTC'
 alias running_service='systemctl list-units --type=service'
 alias gp='grep -i -E'
-alias ngp='grep -v -i'
+alias ngp='gp -v'
 alias clock='plan9_clock'
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 alias dfc='dfc -d'
@@ -166,11 +164,6 @@ mem_pid ()
 by_size()
 {
     du -sm * | sort -nr | head -10 | awk '{printf "%.2fG\t", $1/1024; $1=""; print $0}'
-}
-
-sc ()
-{
-	9 ls | gp "$1"
 }
 
 convert_img ()
