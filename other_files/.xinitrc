@@ -40,13 +40,18 @@ xrandr --dpi 96
 xrandr --output eDP1 --mode 1920x1080 --pos 1920x240 --rotate normal --output DP1 --off --output DP1-1 --off --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1-3 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
 picom --backend glx --vsync &
+sxhkd &
 xscreensaver &
 start-pulseaudio-x11 &
-skippy-xd --start-daemon &
-sxhkd &
 flameshot &
 nm-applet &
 emacs --fg-daemon &
+
+while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
+do
+	sleep 360 # 6min
+done &
+
 
 ibus
  export GTK_IM_MODULE=ibus

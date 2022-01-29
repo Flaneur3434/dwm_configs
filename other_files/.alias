@@ -121,6 +121,7 @@ if _checkexec git; then
 	alias gfetch='git fetch'
 	alias gpm='git push -u origin master'
 	alias gph='git push -u origin HEAD'
+	alias gcl='git clone --depth 1'
 fi
 
 9man ()
