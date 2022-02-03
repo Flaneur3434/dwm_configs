@@ -26,6 +26,5 @@ if [ -e $HOME/.alias ]; then
 	source $HOME/.alias
 fi
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 
 figlet -f smslant "\$ whoami"

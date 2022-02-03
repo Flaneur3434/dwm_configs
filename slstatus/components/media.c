@@ -48,7 +48,7 @@ media_mpd_stat()
                         format_title(title, mpc_title, sizeof(title));
                         elapsed = mpd_status_get_elapsed_time(status);
                         total = mpd_status_get_total_time(status);
-                        snprintf(ret, 64, "%s (%.2d:%.2d/%.2d:%.2d)",
+                        snprintf(ret, 64, " %s (%.2d:%.2d/%.2d:%.2d) ",
                                 title, elapsed / 60, elapsed %60,
                                 total / 60, total %60);
                         free(mpc_title);
@@ -60,7 +60,7 @@ media_mpd_stat()
                         format_title(title, mpc_title, sizeof(title));
                         elapsed = mpd_status_get_elapsed_time(status);
                         total = mpd_status_get_total_time(status);
-                        snprintf(ret, 64, "%s (%.2d:%.2d/%.2d:%.2d)",
+                        snprintf(ret, 64, " %s (%.2d:%.2d/%.2d:%.2d) ",
                                 title, elapsed / 60, elapsed %60,
                                 total / 60, total %60);
                         free(mpc_title);
@@ -70,14 +70,14 @@ media_mpd_stat()
                             mpc_title = (char *)mpd_song_get_tag(song,
                                     MPD_TAG_TITLE, 0);
                             format_title(title, mpc_title, sizeof(title));
-                            snprintf(ret, 64, "%s ", title);
+                            snprintf(ret, 64, " %s", title);
                             free(mpc_title);
                         } else {
-                            snprintf(ret, 64, "\ue374 ");
+                            snprintf(ret, 64, " error!!!");
                         }
                 } else {
                         /* state == MPD_STATE_UNKNOWN */
-                        snprintf(ret, 64, "\uf29c ");
+                        snprintf(ret, 64, "error");
                 }
         } else {
                 return NULL;

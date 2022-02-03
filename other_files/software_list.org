@@ -20,6 +20,7 @@
 		- HTML5 Video speed controller
 		- uBlock Origin
 		- User-Agent Switcher and Manager
+** nyxt (emacs of webbrowsers)
 * Programming
         - vim-clipboard
         - xterm
