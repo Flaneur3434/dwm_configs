@@ -1,0 +1,105 @@
+# http://xahlee.info/linux/linux_show_keycode_keysym.html
+#rofi
+super + r
+  ~/Documents/scripts/rofi_dwm.sh
+
+#Caprine
+ctrl + shift + m
+  	caprine
+
+#Discord
+ctrl + shift +d
+  	discord
+
+#Volume Up
+ctrl + shift + a
+  	pactl set-sink-volume 0 +5%
+
+#mpd volume up
+alt + shift + a
+	mpc volume +5
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+#Volume Down
+ctrl + shift + s
+  	pactl set-sink-volume 0 -5%
+
+#mpd volume down
+alt + shift + s
+	mpc volume -5
+
+#mpd menu dmenu
+alt + l
+	mpdmenu -p :: -i -l 5 -nb "#cccccc" -nf "#000000" -sb "#0066ff" -sf "#ffffff"
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+#MuteVol
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+#MuteMic
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+#Brightness
+#use xbindkeys --key to figure out keys
+XF86MonBrightnessDown
+  	blight set -5%
+
+XF86MonBrightnessUp
+  	blight set +5%
+
+alt + Tab
+    dmenu-switcher
+
+alt + n
+	mpc next
+
+alt + b
+	mpc prev
+
+alt + p
+ 	mpc pause
+
+alt + o
+ 	mpc play
+
+#terminal
+#tabbed xterm -into
+super + Return
+    xterm -geometry 90x35
+
+# emacs
+ctrl + shift + e
+    emacsclient -c -a emacs
+
+#browser
+super + b
+	librewolf
+
+#browser jisho page
+super + shift + b
+	  librewolf --new-window "https://jisho.org/"
+#chrome
+super + c
+	  chromium
+
+#Flameshot
+Print
+	flameshot gui
+
+#dmenurecord
+super + shift + r
+	  dmenurecord
+
+#webcam toggle
+super + shift + c
+	  webcam_toggle
+
+#xkill toggle
+super + shift + x
+	  xkill
