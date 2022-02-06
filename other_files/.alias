@@ -14,7 +14,7 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # alias diskstation='ssh -vvv ken_nc@192.168.1.115 -p22' # for debugging
 alias diskstation='ssh ken_nc@192.168.1.115 -p 22'
-alias moto='ssh ken_nc@192.168.1.97 -p 8022'
+alias moto='ssh ken_nc@192.168.1.35 -p 8022'
 alias Bind='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/diskstation/'
 alias UnBind='sudo unmount /home/ken_nc/Documents/diskstation/'
 
