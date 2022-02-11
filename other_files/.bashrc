@@ -27,4 +27,13 @@ if [ -e $HOME/.alias ]; then
 fi
 
 
+# overwrite some stuff for 9term
+if [ "$TERM" == "dumb" ]; then
+    alias ls='ls --color=never'
+    alias grep='grep --color=never'
+    export PAGER=cat
+    export GIT_PAGER=cat
+	export PS1="% "
+fi
+
 figlet -f smslant "\$ whoami"

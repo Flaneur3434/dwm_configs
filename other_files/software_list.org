@@ -95,3 +95,5 @@
      - rnl (https://github.com/leahneukirchen/rnl)
      - rwc (https://github.com/leahneukirchen/rwc)
      - xe (https://github.com/leahneukirchen/xe)
+     - sregx (https://github.com/zyedidia/sregx)
+     - pandoc
