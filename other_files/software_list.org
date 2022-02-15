@@ -96,4 +96,5 @@
      - rwc (https://github.com/leahneukirchen/rwc)
      - xe (https://github.com/leahneukirchen/xe)
      - sregx (https://github.com/zyedidia/sregx)
+     - fzy (https://github.com/jhawthorn/fzy)
      - pandoc

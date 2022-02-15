@@ -1,3 +1,6 @@
+#doas
+alias sudo='doas'
+
 #pacman
 alias pacman='pacman --color auto'
 alias yay='paru'

@@ -19,6 +19,9 @@ export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
 export PAGER='less'
 
+# I dont use wayland >:(
+export GDK_BACKEND=x11
+
 source /home/ken_nc/Documents/scripts/bashmarks.sh
 
 PLAN9=/usr/local/plan9 export PLAN9
