@@ -1,0 +1,3 @@
+[submodule "plan9port"]
+	path = plan9port
+	url = https://github.com/sminez/plan9port

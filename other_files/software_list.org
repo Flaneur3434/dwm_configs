@@ -28,6 +28,8 @@
         - acme
         - emacs
         - plan9port
+          - Use this fork: https://github.com/sminez/plan9port
+            just remember to pull from the upstream repo (https://github.com/9fans/plan9port)
         - gnu debugger (gdb)
 * b
      - Caprine
