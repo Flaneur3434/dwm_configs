@@ -24,6 +24,7 @@ alias UnBind='command sudo unmount /home/ken_nc/Documents/diskstation/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
 alias ftc='cd Documents/programming/Freight-Frenzy/'
+alias igo='basilisk https://online-go.com/overview'
 
 alias pl='. 91plumber'
 alias blog='blog.sh'

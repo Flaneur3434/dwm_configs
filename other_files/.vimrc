@@ -161,7 +161,6 @@ endfunction
 
 " Pluggin
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/jceb/vim-orgmode'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-surround'
 call plug#end()

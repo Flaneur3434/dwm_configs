@@ -36,4 +36,4 @@ if [ "$TERM" == "dumb" ]; then
 	export PS1="% "
 fi
 
-figlet -f smslant "\$ whoami"
+# figlet -f smslant "\$ whoami"
