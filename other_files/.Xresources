@@ -26,13 +26,22 @@
 ! UTF-8
 *locale: true
 *utf8Fonts: always
+*utf8: true
 *eightBitInput: false
+*inputMethod: ibus
 
 
 !Fonts
-*faceName: JetBrains Mono:style=Regular
-*faceNameDoubleSize: Source Han Sans JP
-*faceSize: 12
+*faceName: Agave:style=Regular
+*faceNameDoubleSize: HackGenNerd:style=Regular
+*faceSize: 14
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 
 ! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
 *selectToClipboard: true
