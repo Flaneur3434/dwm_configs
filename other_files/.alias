@@ -37,8 +37,19 @@ alias ngp='gp -v'
 alias clock='plan9_clock'
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 alias dfc='dfc -d'
-alias ll='9 ls -l'
-alias lt='9 ls -lt'
+
+# alias ll='ls --all --human-readable --literal'
+alias ll='9 ls -Q'
+
+# access time
+alias lt='9 ls -Qtu'
+
+# creation time
+alias ltc='ls --all --human-readable --literal --time=ctime'
+
+# modified time
+alias ltm='9 ls -Qt'
+
 alias emda='emacs --daemon &'
 alias mu='ncmpcpp'
 alias mu-up='mpc update'
@@ -158,4 +169,13 @@ gcc_w (){
 java-doc () {
   # openjdk-doc
   walk /usr/share/doc/java-openjdk/api | gp "$1"
+}
+
+man() {
+    local width=$(tput cols)
+    if [[ $width -gt $MANWIDTH ]]; then
+	   width=$MANWIDTH
+	fi
+    env MANWIDTH=$width \
+    man "$@"
 }

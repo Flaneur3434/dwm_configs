@@ -33,7 +33,8 @@
 
 !Fonts
 *faceName: Agave:style=Regular
-*faceNameDoubleSize: HackGenNerd:style=Regular
+!! *faceNameDoublesize: HackGenNerd:style=Regular
+*faceNameDoublesize: zpix:style=Regular
 *faceSize: 14
 Xft.autohint: 0
 Xft.antialias: 1
@@ -64,6 +65,7 @@ xterm*faceSize5: 22
 
 xterm*scrollTtyOutput: true
 xterm*scrollTtyKeypress: true
+xterm*alternateScroll: true
 
 ! ## Keybindings ##
 xterm*translations: #override \n\
@@ -86,6 +88,18 @@ Emacs.useXIM: off
 ! double-click to select whole URLs :D
 ! https://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+!! Zutty
+Zutty.altScroll: true
+Zutty.autoCopy: true
+Zutty.saveLines: 2000
+Zutty.showWraps: true
+Zutty.fontpath: /home/ken_nc/.local/share/fonts/
+Zutty.font: Agave
+Zutty.dwfont: zpix
+Zutty.fontsize: 18
+Zutty.altSendsEscape: false
+Zutty.modifyOtherKeys: 0
 
 !! Rofi Settings
 rofi.color-enabled:	true

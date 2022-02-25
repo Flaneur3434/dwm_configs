@@ -26,7 +26,6 @@ if [ -e $HOME/.alias ]; then
 	source $HOME/.alias
 fi
 
-
 # overwrite some stuff for 9term
 if [ "$TERM" == "dumb" ]; then
     alias ls='ls --color=never'

@@ -70,8 +70,10 @@ alt + o
 
 #terminal
 #tabbed xterm -into
+# zutty -geometry 90x35
 super + Return
-    xterm -geometry 90x35
+	  xterm -geometry 90x35
+
 
 # emacs
 ctrl + shift + e

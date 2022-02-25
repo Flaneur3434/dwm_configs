@@ -16,7 +16,8 @@ export EDITOR='vim'
 export VISUAL='vim'
 export BROWSER='librewolf'
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
+# export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
+export LESS=' --hilite-search --ignore-case --long-prompt --RAW-CONTROL-CHARS  '
 export PAGER='less'
 
 # I dont use wayland >:(

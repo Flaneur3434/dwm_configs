@@ -45,6 +45,7 @@ xscreensaver &
 start-pulseaudio-x11 &
 flameshot &
 nm-applet &
+xbanish -s -t 5 &
 emacs --fg-daemon &
 
 while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
@@ -53,11 +54,10 @@ do
 done &
 
 
-ibus
- export GTK_IM_MODULE=ibus
- export XMODIFIERS=@im=ibus
- export QT_IM_MODULE=ibus
- ibus-daemon -drx &
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx &
 
 xset s off # Disable screen saver blinking
 xset -dpms # Turns on display power management signaling (+dpms to turn on)
