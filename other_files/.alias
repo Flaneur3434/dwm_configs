@@ -26,8 +26,8 @@ alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/o
 alias ftc='cd Documents/programming/Freight-Frenzy/'
 alias igo='basilisk https://online-go.com/overview'
 
-alias pl='. 91plumber'
 alias blog='blog.sh'
+alias pl='. 91plumber'
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
 alias reset_clock='sudo timedatectl set-timezone UTC'
