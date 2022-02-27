@@ -24,5 +24,5 @@ export PAGER='less'
 export GDK_BACKEND=x11
 
 source /home/ken_nc/Documents/scripts/bashmarks.sh
-
+bind -x '"\eOP":"91plumber $PWD && cd $PWD/$(xclip -o)"'
 PLAN9=/usr/local/plan9 export PLAN9

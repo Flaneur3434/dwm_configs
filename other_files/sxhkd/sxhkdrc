@@ -105,7 +105,3 @@ super + shift + c
 #xkill toggle
 super + shift + x
 	  xkill
-
-# plumber
-super + shift + w
- 	  X11-plumber

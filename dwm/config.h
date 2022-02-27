@@ -36,18 +36,18 @@ static const char emacsname[] = "emacs@";
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class     	instance  title           	tags mask  isfloating  isterminal  noswallow  monitor */
+    /* xprop(1):
+     *	WM_CLASS(STRING) = instance, class
+     *	WM_NAME(STRING) = title
+     */
+    /* class     	instance  title           	tags mask  isfloating  isterminal  noswallow  monitor */
     { "Gimp",   	NULL,     NULL,           	0,         	1,          	0,           	0,        		-1 },
     { "tabbed",   	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
-	{ "St", 		NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
-	{ "Termite", 	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
- 	{ "URxvt", 	    NULL,     NULL,             0,         	0,          	1,           	0,        		-1 },
- 	{ "XTerm", 	    NULL,     NULL,             0,         	0,          	1,           	0,        		-1 },
-	{ NULL,      	NULL,     "Event Tester", 	0,         	0,          	0,           	1,        		-1 }, /* xev */
+    { "St", 		NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
+    { "Termite", 	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
+    { "URxvt", 	        NULL,     NULL,                 0,         	0,          	1,           	0,        		-1 },
+    { "XTerm", 	        NULL,     NULL,                 0,         	0,          	1,           	0,        		-1 },
+    { NULL,      	NULL,     "Event Tester", 	0,         	0,          	0,           	1,        		-1 }, /* xev */
 };
 
 /* layout(s) */
@@ -78,14 +78,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "termite", NULL };
-
+static const char *termcmd[]  = { "XTerm", NULL };
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     	key		function        argument */
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
-	{ MODKEY|ShiftMask,             	XK_R,      						quit,          {.i = 23 } },
+    { MODKEY|ShiftMask,             	XK_R,      quit,           {.i = 23 } },
 	{ MODKEY,                       XK_i,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_u,      incnmaster,     {.i = +1 } },
@@ -96,12 +95,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ ControlMask|ShiftMask,        XK_f,      setlayout,      {.v = &layouts[3]} },
 	{ ControlMask|ShiftMask,        XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -111,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      shiftview,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -120,6 +122,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 };
 

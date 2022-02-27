@@ -27,7 +27,9 @@ alias ftc='cd Documents/programming/Freight-Frenzy/'
 alias igo='basilisk https://online-go.com/overview'
 
 alias blog='blog.sh'
-alias pl='. 91plumber'
+
+alias fd="ls | sor 'test -d'"
+alias ff="ls | sor 'test -f'"
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
 alias reset_clock='sudo timedatectl set-timezone UTC'

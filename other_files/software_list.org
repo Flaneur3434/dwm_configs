@@ -99,4 +99,6 @@
      - xe (https://github.com/leahneukirchen/xe)
      - sregx (https://github.com/zyedidia/sregx)
      - fzy (https://github.com/jhawthorn/fzy)
-     - pandoc
+     - xbanish
+     - cpupower
+     - liquorix-linux kernel
