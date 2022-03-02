@@ -35,4 +35,5 @@ if [ "$TERM" == "dumb" ]; then
 	export PS1="% "
 fi
 
+bind -x '"\eOP":"91plumber $PWD && cd $PWD/$(xclip -o)"'
 # figlet -f smslant "\$ whoami"

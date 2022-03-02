@@ -23,6 +23,8 @@ export PAGER='less'
 # I dont use wayland >:(
 export GDK_BACKEND=x11
 
+# more performant emacs lsp
+export LSP_USE_PLISTS=true
+
 source /home/ken_nc/Documents/scripts/bashmarks.sh
-bind -x '"\eOP":"91plumber $PWD && cd $PWD/$(xclip -o)"'
 PLAN9=/usr/local/plan9 export PLAN9
