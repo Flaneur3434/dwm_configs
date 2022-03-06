@@ -3,7 +3,7 @@ alias sudo='doas'
 
 #pacman
 alias pacman='pacman --color auto'
-alias yay='paru'
+alias yay='paru --fm vim'
 
 #youtube-dl
 alias youtube="youtube-mp3-tag-editor"

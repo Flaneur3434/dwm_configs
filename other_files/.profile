@@ -25,6 +25,6 @@ export GDK_BACKEND=x11
 
 # more performant emacs lsp
 export LSP_USE_PLISTS=true
+export PLAN9=/usr/local/plan9 export PLAN9
 
-source /home/ken_nc/Documents/scripts/bashmarks.sh
-PLAN9=/usr/local/plan9 export PLAN9
+[[ -f /home/ken_nc/Documents/scripts/bashmarks.sh ]] && source /home/ken_nc/Documents/scripts/bashmarks.sh

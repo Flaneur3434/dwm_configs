@@ -36,4 +36,7 @@ if [ "$TERM" == "dumb" ]; then
 fi
 
 bind -x '"\eOP":"91plumber $PWD && cd $PWD/$(xclip -o)"'
+# Ctrl-(left/right arrow)
+bind '"\e[1;5C": forward-word'
+bind '"\e[1;5D": backward-word'
 # figlet -f smslant "\$ whoami"
