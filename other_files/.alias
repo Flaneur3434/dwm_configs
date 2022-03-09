@@ -18,9 +18,11 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 # alias diskstation='ssh -vvv ken_nc@192.168.1.115 -p22' # for debugging
 alias diskstation='ssh ken_nc@192.168.1.115 -p 22'
 alias moto='ssh ken_nc@192.168.1.35 -p 8022'
-alias Bind='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/diskstation/'
+alias arch-nas='ssh ken_nc@192.168.1.36 -p 22'
+alias BindD='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/bind/'
+alias BindA='sudo mount -t nfs 192.168.1.36: /home/ken_nc/Documents/bind/'
 # for some reason doas doesnt work with this command so I have to use regular sudo
-alias UnBind='command sudo unmount /home/ken_nc/Documents/diskstation/'
+alias UnBind='command sudo unmount /home/ken_nc/Documents/bind/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
 alias ftc='cd Documents/programming/Freight-Frenzy/'
@@ -30,6 +32,8 @@ alias blog='blog.sh'
 
 alias fd="ls | sor 'test -d'"
 alias ff="ls | sor 'test -f'"
+
+alias syslist="systemctl list-unit-files --type=service --no-pager"
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
 alias reset_clock='sudo timedatectl set-timezone UTC'

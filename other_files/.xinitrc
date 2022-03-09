@@ -46,7 +46,7 @@ start-pulseaudio-x11 &
 flameshot &
 nm-applet &
 xbanish -s -t 5 &
-emacs --fg-daemon &
+# emacs --fg-daemon &
 
 while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
 do
