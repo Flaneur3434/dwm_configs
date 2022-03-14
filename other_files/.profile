@@ -10,7 +10,7 @@ export PATH="$PATH:$HOME/Documents/scripts/"
 export PATH="$PATH:$HOME/Documents/scripts/x11-scripts"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin/"
-# export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
+export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 
 export EDITOR='emacsclient -t'
 export VISUAL='emacsclient -t'

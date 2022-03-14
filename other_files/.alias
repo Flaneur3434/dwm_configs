@@ -56,7 +56,8 @@ alias ltc='ls --all --human-readable --literal --time=ctime'
 # modified time
 alias ltm='9 ls -Qt'
 
-alias emda='emacs --daemon &'
+# alias emda='emacs --daemon &'
+alias emda='systemctl --user restart emacs'
 alias mu='ncmpcpp'
 alias mu-up='mpc update'
 alias tar-gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
