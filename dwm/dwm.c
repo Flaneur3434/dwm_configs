@@ -230,6 +230,8 @@ static void destroynotify(XEvent *e);
 static void detach(Client *c);
 static void detachstack(Client *c);
 static Monitor *dirtomon(int dir);
+static void deck(Monitor *m);
+static void doubledeck(Monitor *m);
 static void drawbar(Monitor *m);
 static void drawbars(void);
 static void enternotify(XEvent *e);
@@ -258,6 +260,9 @@ static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void pop(Client *);
+static Client *prevtiled(Client *c);
+static void pushdown(const Arg *arg);
+static void pushup(const Arg *arg);
 static void propertynotify(XEvent *e);
 static void quit(const Arg *arg);
 static Monitor *recttomon(int x, int y, int w, int h);
@@ -2901,4 +2906,91 @@ layoutmenu(const Arg *arg) {
 
 	i = atoi(c);
 	setlayout(&((Arg) { .v = &layouts[i] }));
+}
+
+Client *
+prevtiled(Client *c) {
+    Client *p, *r;
+
+    for(p = selmon->clients, r = NULL; p && p != c; p = p->next)
+	if(!p->isfloating && ISVISIBLE(p))
+	    r = p;
+    return r;
+}
+
+void
+pushdown(const Arg *arg) {
+    Client *sel = selmon->sel, *c;
+
+    if(!sel || sel->isfloating || sel == nexttiled(selmon->clients))
+	return;
+    if((c = nexttiled(sel->next))) {
+	detach(sel);
+	sel->next = c->next;
+	c->next = sel;
+    }
+    focus(sel);
+    arrange(selmon);
+}
+
+void
+pushup(const Arg *arg) {
+    Client *sel = selmon->sel, *c;
+
+    if(!sel || sel->isfloating)
+	return;
+    if((c = prevtiled(sel)) && c != nexttiled(selmon->clients)) {
+	detach(sel);
+	sel->next = c;
+	for(c = selmon->clients; c->next != sel->next; c = c->next);
+	c->next = sel;
+    }
+    focus(sel);
+    arrange(selmon);
+}
+
+void
+deck(Monitor *m) {
+	unsigned int i, n, h, mw, my;
+	Client *c;
+
+	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+	if(n == 0)
+		return;
+
+	if(n > m->nmaster) {
+		mw = m->nmaster ? m->ww * m->mfact : 0;
+		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n - m->nmaster);
+	}
+	else
+		mw = m->ww;
+	for(i = my = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+		if(i < m->nmaster) {
+			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
+			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), False);
+			my += HEIGHT(c);
+		}
+		else
+			resize(c, m->wx + mw, m->wy, m->ww - mw - (2*c->bw), m->wh - (2*c->bw), False);
+}
+
+void
+doubledeck(Monitor *m) {
+	unsigned int i, n, mw;
+	Client *c;
+
+	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
+	if(n == 0)
+		return;
+
+	if(n > m->nmaster)
+		mw = m->nmaster ? m->ww * m->mfact : 0;
+	else
+		mw = m->ww;
+
+	for(i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+		if(i < m->nmaster)
+			resize(c, m->wx, m->wy, mw - (2*c->bw), m->wh - (2*c->bw), False);
+		else
+			resize(c, m->wx + mw, m->wy, m->ww - mw - (2*c->bw), m->wh - (2*c->bw), False);
 }

@@ -62,6 +62,8 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "(@)",      spiral },
 	{ "[\\]",     dwindle },
+	{ "[D]",      deck },
+	{ "DD",       doubledeck },
 };
 
 /* key definitions */
@@ -112,6 +114,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_l,      shiftview,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      shiftview,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      pushup,              {0} },
+	{ MODKEY|ShiftMask,             XK_k,      pushdown,            {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
