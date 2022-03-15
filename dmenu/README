@@ -18,6 +18,11 @@ Afterwards enter the following command to build and install dmenu
 
     make clean install
 
+Patches
+-------
+dmenu-fuzzymatch-4.9.diff
+dmenu-mousesupport-5.1.diff
+dmenu-fuzzyhighlight-4.9.diff
 
 Running dmenu
 -------------
