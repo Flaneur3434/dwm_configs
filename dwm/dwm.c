@@ -243,11 +243,13 @@ static int getrootptr(int *x, int *y);
 static long getstate(Window w);
 static unsigned int getsystraywidth();
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
+static void goback(const Arg *arg);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
+static void layoutmenu(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
@@ -356,7 +358,7 @@ static Cur *cursor[CurLast];
 static Clr **scheme;
 static Display *dpy;
 static Drw *drw;
-static Monitor *mons, *selmon, *statmon;
+static Monitor *mons, *selmon, *statmon, *prevmon;
 static Window root, wmcheckwin;
 static xcb_connection_t *xcon;
 
@@ -625,6 +627,7 @@ void buttonpress(XEvent *e) {
   /* focus monitor if necessary */
   if ((m = wintomon(ev->window)) && m != selmon) {
     unfocus(selmon->sel, 1);
+    prevmon = selmon;
     selmon = m;
     focus(NULL);
   }
@@ -1047,6 +1050,7 @@ void enternotify(XEvent *e) {
   m = c ? c->mon : wintomon(ev->window);
   if (m != selmon) {
     unfocus(selmon->sel, 1);
+    prevmon = selmon;
     selmon = m;
   } else if (!c || c == selmon->sel)
     return;
@@ -1083,7 +1087,10 @@ void focus(Client *c) {
     unfocus(selmon->sel, 0);
   if (c) {
     if (c->mon != selmon)
+    {
+      prevmon = selmon;
       selmon = c->mon;
+    }
     if (c->isurgent)
       seturgent(c, 0);
     detachstack(c);
@@ -1120,6 +1127,7 @@ void focusmon(const Arg *arg) {
   if ((m = dirtomon(arg->i)) == selmon)
     return;
   unfocus(selmon->sel, 0);
+  prevmon = selmon;
   selmon = m;
   focus(NULL);
   warp(selmon->sel);
@@ -1432,6 +1440,8 @@ void motionnotify(XEvent *e) {
     return;
   if ((m = recttomon(ev->x_root, ev->y_root, 1, 1)) != mon && mon) {
     unfocus(selmon->sel, 1);
+    if (m != selmon)
+	prevmon = selmon;
     selmon = m;
     focus(NULL);
   }
@@ -1491,6 +1501,7 @@ void movemouse(const Arg *arg) {
   XUngrabPointer(dpy, CurrentTime);
   if ((m = recttomon(c->x, c->y, c->w, c->h)) != selmon) {
     sendmon(c, m);
+    prevmon = selmon;
     selmon = m;
     focus(NULL);
   }
@@ -1664,6 +1675,7 @@ void resizemouse(const Arg *arg) {
     ;
   if ((m = recttomon(c->x, c->y, c->w, c->h)) != selmon) {
     sendmon(c, m);
+    prevmon = selmon;
     selmon = m;
     focus(NULL);
   }
@@ -2081,6 +2093,7 @@ void toggleview(const Arg *arg) {
   int i;
 
   if (newtagset) {
+    prevmon = NULL;
     selmon->tagset[selmon->seltags] = newtagset;
 
     if (newtagset == ~0) {
@@ -2526,6 +2539,7 @@ void view(const Arg *arg) {
 
   if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
     return;
+  prevmon = NULL;
   selmon->seltags ^= 1; /* toggle sel tagset */
   if (arg->ui & TAGMASK) {
     selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
@@ -2853,4 +2867,38 @@ int main(int argc, char *argv[]) {
   cleanup();
   XCloseDisplay(dpy);
   return EXIT_SUCCESS;
+}
+
+void
+goback(const Arg *arg)
+{
+	if (prevmon == NULL) {
+		Arg a = {0};
+		view(&a);
+	} else if (prevmon != selmon) {
+		unfocus(selmon->sel, 0);
+		Monitor *p = selmon;
+		selmon = prevmon;
+		focus(NULL);
+		warp(prevmon->sel);
+		prevmon = p;
+	}
+}
+
+void
+layoutmenu(const Arg *arg) {
+	FILE *p;
+	char c[3], *s;
+	int i;
+
+	if (!(p = popen(layoutmenu_cmd, "r")))
+		 return;
+	s = fgets(c, sizeof(c), p);
+	pclose(p);
+
+	if (!s || *s == '\0' || c == '\0')
+		 return;
+
+	i = atoi(c);
+	setlayout(&((Arg) { .v = &layouts[i] }));
 }
