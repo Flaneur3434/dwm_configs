@@ -12,8 +12,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin/"
 export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 
-export EDITOR='emacsclient -t'
-export VISUAL='emacsclient -t'
+# export EDITOR='emacsclient -t'
+# export VISUAL='emacsclient -t'
+export EDITOR='vim'
+export VISUAL='vim'
 export BROWSER='librewolf'
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 # export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
