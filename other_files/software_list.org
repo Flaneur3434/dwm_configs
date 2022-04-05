@@ -102,3 +102,4 @@
      - xbanish
      - cpupower
      - liquorix-linux kernel
+     - OpenSnitch

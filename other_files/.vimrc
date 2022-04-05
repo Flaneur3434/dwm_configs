@@ -150,14 +150,49 @@ function! NetrwMapping()
   nnoremap <buffer> j <Left>
   nnoremap <buffer> k <Down>
   nnoremap <buffer> l <Right>
-  nnoremap <buffer> ^ -^ 
+  nnoremap <buffer> ^ -^
   " file management
-  nnoremap <silent> <buffer> c :!touch untitled.txt<CR> 
+  nnoremap <silent> <buffer> c :!touch untitled.txt<CR>
   nnoremap <silent> <buffer> <space>m :bd<CR>
 endfunction
 
 " Completion
 " C-x C-n
+
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command . " | fzy" . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+
+function! SelectaIdentifier()
+  " Yank the word under the cursor into the z register
+  normal "zyiw
+  " Fuzzy match files in the current directory, starting with the word under
+  " the cursor
+  call SelectaCommand("find * -type f", " -s " . @z, ":e")
+endfunction
+nnoremap <c-g> :call SelectaIdentifier()<cr>
+
+function! SelectaBuffer()
+  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+  let buffers = map(bufnrs, 'bufname(v:val)')
+  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
+endfunction
+
+" Fuzzy select a buffer. Open the selected buffer with :b.
+nnoremap <leader>b :call SelectaBuffer()<cr>
 
 " Pluggin
 call plug#begin('~/.vim/plugged')
@@ -175,4 +210,3 @@ call plug#end()
 " yss" - change hello world -> "hello world"
 " ysiw) (with cursor on hello) - change hello world -> (hello) world
 " ds" - change "hello world" -> hello world
-

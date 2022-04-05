@@ -45,12 +45,13 @@ start-pulseaudio-x11 &
 flameshot &
 nm-applet &
 xbanish -s -t 5 &
+opensnitch-ui &
 # emacs --fg-daemon &
 
-while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
-do
-	sleep 360 # 6min
-done &
+# while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
+# do
+# 	sleep 360 # 6min
+# done &
 
 
 export GTK_IM_MODULE=ibus
@@ -76,3 +77,6 @@ exec dwm
 
 # XFCE4
 # exec startxfce4
+
+# Lumina
+# exec start-lumina-desktop

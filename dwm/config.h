@@ -42,6 +42,7 @@ static const Rule rules[] = {
      */
     /* class     	instance  title           	tags mask  isfloating  isterminal  noswallow  monitor */
     { "Gimp",   	NULL,     NULL,           	0,         	1,          	0,           	0,        		-1 },
+    { "Gimp",   	NULL,     NULL,           	0,         	1,          	0,           	0,        		-1 },
     { "tabbed",   	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
     { "St", 		NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
     { "Termite", 	NULL,     NULL,           	0,         	0,          	1,           	0,        		-1 },
