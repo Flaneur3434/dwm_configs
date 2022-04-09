@@ -48,10 +48,10 @@ xbanish -s -t 5 &
 opensnitch-ui &
 # emacs --fg-daemon &
 
-# while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
-# do
-# 	sleep 360 # 6min
-# done &
+while feh --bg-fill --randomize --no-fehbg ~/Pictures/Wallpapers/buildings/*
+do
+	sleep 360 # 6min
+done &
 
 
 export GTK_IM_MODULE=ibus
@@ -80,3 +80,8 @@ exec dwm
 
 # Lumina
 # exec start-lumina-desktop
+
+# Gnome
+# export XDG_SESSION_TYPE=x11
+# export GDK_BACKEND=x11
+# exec gnome-session

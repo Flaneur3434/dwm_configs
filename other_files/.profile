@@ -16,6 +16,7 @@ export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 # export VISUAL='emacsclient -t'
 export EDITOR='vim'
 export VISUAL='vim'
+export COLORTERM=truecolor
 export BROWSER='librewolf'
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 # export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
