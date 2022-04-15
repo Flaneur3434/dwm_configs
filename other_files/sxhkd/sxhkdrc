@@ -69,11 +69,10 @@ alt + o
  	mpc play
 
 #terminal
-#tabbed xterm -into
+# tabbed xterm -into
 # zutty -geometry 90x35
 super + Return
 	  xterm -geometry 90x35
-
 
 # emacs
 ctrl + shift + e

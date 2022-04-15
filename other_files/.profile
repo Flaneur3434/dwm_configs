@@ -14,6 +14,7 @@ export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 
 # export EDITOR='emacsclient -t'
 # export VISUAL='emacsclient -t'
+export TERM='xterm-256color'
 export EDITOR='vim'
 export VISUAL='vim'
 export COLORTERM=truecolor
