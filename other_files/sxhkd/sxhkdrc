@@ -104,3 +104,7 @@ super + shift + c
 #xkill toggle
 super + shift + x
 	  xkill
+
+#dock and undock
+alt + shift + q
+	 laptop_screen

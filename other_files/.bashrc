@@ -1,5 +1,10 @@
 [ -f ~/.profile ] && . ~/.profile
 
+shopt -s checkwinsize globstar complete_fullquote extquote extglob\
+     force_fignore hostcomplete interactive_comments xpg_echo promptvars\
+     sourcepath progcomp autocd cdspell dirspell direxpand nocasematch\
+     histappend cmdhist lithist
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion

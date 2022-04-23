@@ -64,7 +64,7 @@ xset -dpms # Turns on display power management signaling (+dpms to turn on)
 
 # DWM
 slstatus &
-exec dwm
+while type dwm >/dev/null ; do dwm && continue || break ; done
 
 # CTWM
 #xclock &

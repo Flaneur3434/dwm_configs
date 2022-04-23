@@ -30,7 +30,6 @@
 *eightBitInput: false
 *inputMethod: ibus
 
-
 !Fonts
 ! *faceName: Agave:style=Regular
 *faceName: Caskaydia Cove:style=Regular
@@ -88,18 +87,6 @@ Emacs.useXIM: off
 ! double-click to select whole URLs :D
 ! https://scarygliders.net/2011/12/01/customize-xterm-the-original-and-best-terminal/
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-
-!! Zutty
-Zutty.altScroll: true
-Zutty.autoCopy: true
-Zutty.saveLines: 2000
-Zutty.showWraps: true
-Zutty.fontpath: /home/ken_nc/.local/share/fonts/
-Zutty.font: Agave
-Zutty.dwfont: zpix
-Zutty.fontsize: 18
-Zutty.altSendsEscape: false
-Zutty.modifyOtherKeys: 0
 
 !! Rofi Settings
 rofi.color-enabled:	true
