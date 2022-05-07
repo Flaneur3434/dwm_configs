@@ -59,6 +59,7 @@ alias ltm='9 ls -Qt'
 # alias emda='emacs --daemon &'
 alias emda='systemctl --user restart emacs'
 alias mu='ncmpcpp'
+alias mui='ncmpcpp-ueberzug'
 alias mu-up='mpc update'
 alias tar-gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
 alias all-img='find ./ -name "*.jpg" -or -name "*.png" -type f | sort -R | sxiv -ptbf -'

@@ -101,5 +101,7 @@
      - fzy (https://github.com/jhawthorn/fzy)
      - xbanish
      - cpupower
-     - liquorix-linux kernel
      - OpenSnitch
+     - jdtls (java lsp server)
+     - gopls (golang lsp server)
+     - godef (golang definition finder)

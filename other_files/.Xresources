@@ -32,7 +32,8 @@
 
 !Fonts
 ! *faceName: Agave:style=Regular
-*faceName: Caskaydia Cove:style=Regular
+! *faceName: Caskaydia Cove:style=Regular
+*faceName: Comic Code Ligatures:style=Regular
 *faceNameDoublesize: zpix:style=Regular
 *faceSize: 14
 Xft.autohint: 0
