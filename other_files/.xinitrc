@@ -53,16 +53,16 @@ do
 	sleep 360 # 6min
 done &
 
-
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx &
 
-xset s off # Disable screen saver blinking
-xset -dpms # Turns on display power management signaling (+dpms to turn on)
+
 
 # DWM
+xset s off # Disable screen saver blinking
+xset -dpms # Turns on display power management signaling (+dpms to turn on)
 slstatus &
 exec dwm
 

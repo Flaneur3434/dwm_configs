@@ -64,6 +64,7 @@ alias mu-up='mpc update'
 alias tar-gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
 alias all-img='find ./ -name "*.jpg" -or -name "*.png" -type f | sort -R | sxiv -ptbf -'
 alias rand-img='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" \) | shuf | head -1 | sxiv -p -'
+alias rand-img-list='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" \) | shuf | sxiv -p -'
 alias rand-vid='mpv "$(find ./ -path ./@eaDir -prune -o \( -name "*.mp4" -o -name "*.mkv" -o -name "*.webm" \) -type f | shuf | head -1 )"'
 alias sxiv='sxiv -p'
 alias iftop='sudo iftop -i wlan0'
@@ -147,7 +148,7 @@ if _checkexec git; then
 	# syncing
 	alias gpull='git pull'
 	alias gfetch='git fetch'
-	alias gpm='git push -u origin master'
+	alias gpm='git push -u origin main'
 	alias gph='git push -u origin HEAD'
 	alias gcl='git clone --depth 1'
 fi
