@@ -3,14 +3,6 @@
 super + r
   ~/Documents/scripts/rofi_dwm.sh
 
-#Caprine
-ctrl + shift + m
-  	caprine
-
-#Discord
-ctrl + shift +d
-  	discord
-
 #Volume Up
 ctrl + shift + a
   	pactl set-sink-volume 0 +5%
@@ -85,6 +77,15 @@ super + b
 #browser jisho page
 super + shift + b
 	  librewolf --new-window "https://jisho.org/"
+
+# discord
+ctrl + shift + d
+	 librewolf --new-window "https://discord.com/channels/@me"
+
+# messenger
+ctrl + shift + m
+	 librewolf --new-window "https://www.messenger.com/"
+
 #chrome
 super + c
 	  chromium
