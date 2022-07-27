@@ -46,7 +46,7 @@ XF86MonBrightnessUp
   	blight set +5%
 
 alt + Tab
-    dmenu-switcher
+    xfdashboard
 
 alt + n
 	mpc next

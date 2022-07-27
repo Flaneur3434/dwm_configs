@@ -24,8 +24,8 @@ set timeoutlen=1000	"time(ms) to wait for key mappings
 
 set clipboard+=autoselect
 
-syntax enable			"turn syntax highlighting on
-colorscheme peachpuff
+"syntax enable			"turn syntax highlighting on
+"colorscheme peachpuff
 filetype plugin indent on	"load plugin and indent files associated a detected filetype
 runtime macros/matchit.vim	"allows jumping between brackets with % in normal mode
 
@@ -193,20 +193,3 @@ endfunction
 
 " Fuzzy select a buffer. Open the selected buffer with :b.
 nnoremap <leader>b :call SelectaBuffer()<cr>
-
-" Pluggin
-call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/tpope/vim-surround'
-call plug#end()
-
-" --- vim-commentary ---
-" gcc - comments out a line
-" gcap - comments out a paragraph
-" gc (in visual mode) - comment out the selection
-
-" --- vim-surround ---
-" cs"' - change "hello world" -> 'hello world'
-" yss" - change hello world -> "hello world"
-" ysiw) (with cursor on hello) - change hello world -> (hello) world
-" ds" - change "hello world" -> hello world

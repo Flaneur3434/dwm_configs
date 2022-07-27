@@ -3,7 +3,7 @@ alias sudo='doas'
 
 #pacman
 alias pacman='pacman --color auto'
-alias yay='paru --fm vim'
+alias yay='paru --fm vim --fmflags t'
 
 #youtube-dl
 alias youtube="youtube-mp3-tag-editor"
@@ -18,9 +18,11 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 # alias diskstation='ssh -vvv ken_nc@192.168.1.115 -p22' # for debugging
 alias diskstation='ssh ken_nc@192.168.1.115 -p 22'
 alias moto='ssh ken_nc@192.168.1.35 -p 8022'
-alias arch-nas='ssh ken_nc@192.168.1.36 -p 22'
+alias obsd='ssh ken_nc@192.168.1.127'
+
 alias BindD='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/bind/'
 alias BindA='sudo mount -t nfs 192.168.1.36: /home/ken_nc/Documents/bind/'
+alias BindO='sudo mount -t nfs 192.168.1.127:/mnt/sd4 /home/ken_nc/Documents/bind/'
 # for some reason doas doesnt work with this command so I have to use regular sudo
 alias UnBind='command sudo unmount /home/ken_nc/Documents/bind/'
 
@@ -32,6 +34,8 @@ alias blog='blog.sh'
 
 alias fd="ls | sor 'test -d'"
 alias ff="ls | sor 'test -f'"
+
+alias Rsync="rsync -avuz --progress --protect-args"
 
 alias syslist="systemctl list-unit-files --type=service --no-pager"
 

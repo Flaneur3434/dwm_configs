@@ -36,7 +36,7 @@ fi
 [ ! -s ~/.config/mpd/pid ] && mpd
 
 xrandr --dpi 96
-xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 
 picom &
 sxhkd &

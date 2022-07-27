@@ -32,8 +32,6 @@
             just remember to pull from the upstream repo (https://github.com/9fans/plan9port)
         - gnu debugger (gdb)
 * b
-     - Caprine
-     - Discord
      - croc
      - feh (for wallpaper)
      - sxiv (imageviewer)
@@ -69,7 +67,6 @@
      - bc
      - rg (grep but better)
      - skippy-xd (dwm expand view)
-     - Firejail
      - pavucontrol (pulseaudio volume control)
      - networkmanger / iwd
      - 91menu
@@ -79,7 +76,6 @@
      - ncdu (find largest files)
      - cmus
      - tabbed
-     - tlp (battery threshold setter)
      - alsa-utils
      - xclip
      - xorg-apps (xkill, ...)
@@ -105,3 +101,4 @@
      - jdtls (java lsp server)
      - gopls (golang lsp server)
      - godef (golang definition finder)
+     - auto-cpufreq
