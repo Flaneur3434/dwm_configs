@@ -24,7 +24,7 @@ alias BindD='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Docume
 alias BindA='sudo mount -t nfs 192.168.1.36: /home/ken_nc/Documents/bind/'
 alias BindO='sudo mount -t nfs 192.168.1.127:/mnt/sd4 /home/ken_nc/Documents/bind/'
 # for some reason doas doesnt work with this command so I have to use regular sudo
-alias UnBind='command sudo unmount /home/ken_nc/Documents/bind/'
+alias UnBind='sudo umount /home/ken_nc/Documents/bind/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
 alias ftc='cd Documents/programming/Freight-Frenzy/'
