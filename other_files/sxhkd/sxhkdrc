@@ -5,18 +5,18 @@ super + r
 
 #Volume Up
 ctrl + shift + a
-  	pactl set-sink-volume 0 +5%
+  	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 #mpd volume up
 alt + shift + a
 	mpc volume +5
 
 XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 #Volume Down
 ctrl + shift + s
-  	pactl set-sink-volume 0 -5%
+  	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 #mpd volume down
 alt + shift + s
@@ -26,12 +26,15 @@ alt + shift + s
 alt + l
 	mpdmenu -p :: -i -l 5 -nb "#cccccc" -nf "#000000" -sb "#0066ff" -sf "#ffffff"
 
+XF86Favorites
+	keyboard_backlight.sh
+
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 #MuteVol
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 #MuteMic
 XF86AudioMicMute
@@ -39,19 +42,19 @@ XF86AudioMicMute
 
 #Brightness
 #use xbindkeys --key to figure out keys
-XF86MonBrightnessDown
-  	blight set -5%
+# XF86MonBrightnessDown
+#   	blight set -5%
 
-XF86MonBrightnessUp
-  	blight set +5%
+# XF86MonBrightnessUp
+#   	blight set +5%
 
 alt + Tab
-    xfdashboard
+    skippy-xd
 
-alt + n
+alt + m
 	mpc next
 
-alt + b
+alt + n
 	mpc prev
 
 alt + p
@@ -61,10 +64,9 @@ alt + o
  	mpc play
 
 #terminal
-# tabbed xterm -into
 # zutty -geometry 90x35
 super + Return
-	  xterm -geometry 90x35
+	  tabbed -c -t '#FFFFFF' -T '#000000' xterm -into
 
 # emacs
 ctrl + shift + e
@@ -76,7 +78,7 @@ super + b
 
 #browser jisho page
 super + shift + b
-	  librewolf --new-window "https://jisho.org/"
+	  librewolf -new-tab -url "https://jisho.org/" -new-tab -url "https://dictionary.goo.ne.jp/" -new-tab -url "https://www.merriam-webster.com/" -new-tab -url "https://www.linguee.jp/"
 
 # discord
 ctrl + shift + d
@@ -88,7 +90,7 @@ ctrl + shift + m
 
 #chrome
 super + c
-	  chromium
+	  chromium --disk-cache-dir="/run/user/1000/chromium-cache"
 
 #Flameshot
 Print

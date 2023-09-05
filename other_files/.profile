@@ -14,23 +14,27 @@ export PATH="$PATH:/usr/lib/jvm/java-11-openjdk/bin/"
 # goes at the end of $PATH
 export PATH="$PATH:/usr/local/plan9/bin"
 
+export LD_LIBRARY_PATH="/home/ken_nc/.local/share/lutris/runners/wine/lutris-7.2-2-x86_64/lib64/gstreamer-1.0/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/ken_nc/.local/share/lutris/runners/wine/lutris-7.2-2-x86_64/lib/gstreamer-1.0/"
+
 # export EDITOR='emacsclient -t'
 # export VISUAL='emacsclient -t'
-export TERM='xterm-256color'
-export EDITOR='vim'
-export VISUAL='vim'
-export COLORTERM=truecolor
+export TERM='xterm-direct'
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -c -a emacs'
+export COLORTERM='truecolor'
 export BROWSER='librewolf'
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 # export LESS=' --hilite-search --ignore-case --long-prompt --mouse --RAW-CONTROL-CHARS  '
 export LESS=' --hilite-search --ignore-case --long-prompt --RAW-CONTROL-CHARS  '
 export PAGER='less'
 
-# I dont use wayland >:(
-export GDK_BACKEND=x11
-
 # more performant emacs lsp
 export LSP_USE_PLISTS=true
 export PLAN9=/usr/local/plan9 export PLAN9
 
+# bash reverse search forward keybind works
+stty -ixon
+
 [[ -f /home/ken_nc/Documents/scripts/bashmarks.sh ]] && source /home/ken_nc/Documents/scripts/bashmarks.sh
+[[ -f /home/ken_nc/.dir_colors ]] && eval $( dircolors -b $HOME/.dir_colors )

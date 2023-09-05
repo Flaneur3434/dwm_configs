@@ -1,4 +1,4 @@
-[ -f ~/.profile ] && . ~/.profile
+# [ -f ~/.profile ] && . ~/.profile
 
 shopt -s checkwinsize globstar complete_fullquote extquote extglob\
      force_fignore hostcomplete interactive_comments xpg_echo promptvars\
@@ -31,6 +31,10 @@ if [ -e $HOME/.alias ]; then
 	source $HOME/.alias
 fi
 
+if [ -e $HOME/.profile ]; then
+	source $HOME/.profile
+fi
+
 # overwrite some stuff for 9term
 if [ "$TERM" == "dumb" ]; then
     alias ls='ls --color=never'
@@ -45,3 +49,5 @@ bind -x '"\eOP":"91plumber $PWD && cd $PWD/$(xclip -o)"'
 bind '"\e[1;5C": forward-word'
 bind '"\e[1;5D": backward-word'
 # figlet -f smslant "\$ whoami"
+
+set -o emacs

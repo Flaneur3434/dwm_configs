@@ -3,16 +3,29 @@
 *** Addons:
       - Decentraleyes
       - Distract Me Not
+      - enhanced-h265ify
       - Enhancer for Youtube
       - Facebook Container
       - Google Container
+      - Privacy Badger
       - Tabliss
       - Timer
       - Ublock Origin
-            + Uploaded Block List to Backup
-      - User-Agent Switcher
+        + Uploaded Block List to Backup
+      - User-Agent Switcher and Manager
       - Video Speed Controller
       - ClearURL
+      - Center Pages
+      - Cookie AutoDelete
+      - Dark Reader
+      - Libredirect
+      - Firefox Multi-Account containers
+      - Amazon Container
+      - Container Tab Groups
+      - Temporary Containers
+      - Foxy Gestures
+      - Foxy Tab
+      - No Script
 ** Ungoogled Chromium
 *** Addons
 		- Chromium Web Store
@@ -34,59 +47,51 @@
 * b
      - croc
      - feh (for wallpaper)
-     - sxiv (imageviewer)
-     - youtube-dl (yt-dlp is better now)
-     - android-studio
+     - nsxiv-git (imageviewer)
+     - yt-dlp
      - mpv
      - zathura
-     - iftop
-     - bashtop
-     - tty-clock
-     - dwm
-     - slstatus
      - bash
      - Flameshot
-     - xscreensaver
      - nm-applet
-     - picom
      - dunst
      - sxhkd
      - arandr
      - blight (like xbacklight but works)
      - rofi(1.6.1) (could be changed to dmenu)
-     - Vokoscreen (screen recorder)
+     - simple screen recorder
      - GIMP
-     - Audacious
      - calcurse
      - ibus (language input)
-     - cowsay
-     - paru
-     - pulse-audio
-     - cava
+     - emacs-mozc
+     - ibus-mozc
+     - mozc
+     - rua
+     - pulseaudio
+     - pulseaudio-alsa
+     - pulseaudio-bluetooth
      - KeePassXC
      - bc
-     - rg (grep but better)
+     - rg (grep but rust)
      - skippy-xd (dwm expand view)
      - pavucontrol (pulseaudio volume control)
-     - networkmanger / iwd
+     - networkmanger
      - 91menu
      - imagemagick
      - ffmpeg
      - xpdf
      - ncdu (find largest files)
-     - cmus
-     - tabbed
      - alsa-utils
      - xclip
      - xorg-apps (xkill, ...)
      - xcolor (https://github.com/Soft/xcolor)
-     - tpacpi-bat instead pf tp_smapi
      - mupdf-gl (zathura doesnt work for some stuff)
      - xchm (read chm files)
      - xdotools (script x11 commands)
      - swallow (portable version of dwm swallow (only works on x11))
      - mpd & ncmpcpp & mpc (music server + terminal client + server command bindings)
      - gnu source-highlight (less source highlighting)
+     - dir
      - fmutils (https://github.com/phillbush/fmutils)
      - bashmarks (https://github.com/huyng/bashmarks)
      - rdumpfs (https://github.com/leahneukirchen/rdumpfs)
@@ -96,9 +101,45 @@
      - sregx (https://github.com/zyedidia/sregx)
      - fzy (https://github.com/jhawthorn/fzy)
      - xbanish
-     - cpupower
-     - OpenSnitch
      - jdtls (java lsp server)
      - gopls (golang lsp server)
      - godef (golang definition finder)
+     - android-file-transfer (connecting phone via usb)
      - auto-cpufreq
+     - soundcloud-dl
+     - galaxybudsclient-bin
+     - autofs
+     - android-file-transfer
+     - android-udev
+     - bash-completion
+     - blueman
+     - bluez-utils
+     - clang
+     - htop
+     - intel-gpu-tools
+     - intel-ucode (intel microcode updates)
+     - wireguard-tools
+     - the_silver_searcher
+     - xournalpp
+     - ananicy-cpp (auto adjusting the nice levels of executables)
+     - cfs-zen-tweaks (Alternative CPU scheduler)
+     - irqbalance (spread cpu interrupts across all system cores)
+     - adriconf (configure DRI (for mesa))
+     - lutris
+     - xfce4
+     - moreutils
+     - nfs-utils
+     - unrar
+     - signal-desktop
+     - zip
+     - zram-generator (https://github.com/systemd/zram-generator)
+     - intel-undervolt
+     - gestures (https://gitlab.com/cunidev/gestures)
+     - libinput-gestures (https://github.com/bulletmark/libinput-gestures)
+     - dfc
+     - exifcleaner
+     - profile-sync-daemon-librewolf (allow for firefox caching in ram)
+     - kloak (anonymize keystrok) (https://github.com/vmonaco/kloak)
+     - fwupd (firware update) (https://wiki.archlinux.org/title/Fwupd)
+     - laptop-mode (turn off cpu-freq module and watchdog)
+     - acpid service

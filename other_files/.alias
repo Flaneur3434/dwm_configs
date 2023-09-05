@@ -3,7 +3,10 @@ alias sudo='doas'
 
 #pacman
 alias pacman='pacman --color auto'
-alias yay='paru --fm vim --fmflags t'
+#alias yay='paru --fm vim --fmflags t'
+#alias yay='paru --editmenu'
+alias pinfo="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+
 
 #youtube-dl
 alias youtube="youtube-mp3-tag-editor"
@@ -15,17 +18,18 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-# alias diskstation='ssh -vvv ken_nc@192.168.1.115 -p22' # for debugging
-alias diskstation='ssh ken_nc@192.168.1.115 -p 22'
+# alias diskstation='ssh -vvv ken_nc@192.168.1.47 -p22' # for debugging
+alias diskstation='ssh ken_nc@192.168.1.47 -p 22'
 alias moto='ssh ken_nc@192.168.1.35 -p 8022'
-alias obsd='ssh ken_nc@192.168.1.127'
+alias obsd='ssh ken_nc@nfs.obsd.net'
 
 alias BindD='sudo mount -t nfs 192.168.1.115:/volume2/backup /home/ken_nc/Documents/bind/'
 alias BindA='sudo mount -t nfs 192.168.1.36: /home/ken_nc/Documents/bind/'
-alias BindO='sudo mount -t nfs 192.168.1.127:/mnt/sd4 /home/ken_nc/Documents/bind/ -o rsize=12288,wsize=12288,noatime,nodev,noexec,intr,soft,vers=3'
+# alias BindO='sudo mount -t nfs nfs.obsd.net:/mnt/sd4 /mnt -o rsize=12288,wsize=12288,noatime,nodiratime,nodev,auto,noexec,intr,soft,timeo=1800,retry=10,retrans=6,vers=3'
+alias BindO='sudo mount -t nfs nfs.obsd.net:/mnt/sd4 /mnt -o ro,sloppy,noatime,nconnect=16,rdirplus,noexec,vers=3'
 # for some reason doas doesnt work with this command so I have to use regular sudo
-alias UnBind='sudo umount -v /home/ken_nc/Documents/bind/'
-alias UnBindL='sudo umount -lv /home/ken_nc/Documents/bind/'
+alias UnBind='sudo umount -v /mnt/'
+alias UnBindL='sudo umount -lv /mnt/'
 
 alias ftc_code='cd Documents/programming/Freight-Frenzy/TeamCode/src/main/java/org/firstinspires/ftc/teamcode'
 alias ftc='cd Documents/programming/Freight-Frenzy/'
@@ -38,7 +42,7 @@ alias ff="ls | sor 'test -f'"
 
 alias Rsync="rsync -avuz --progress --protect-args"
 
-alias syslist="systemctl list-unit-files --type=service --no-pager"
+alias syslist="systemctl list-unit-files --type=service --state=enabled --no-pager"
 
 alias vim-his="grep '^>' .viminfo | cut -c3- | sed 's/~/\/home\/ken_nc\//'"
 alias reset_clock='sudo timedatectl set-timezone UTC'
@@ -49,14 +53,16 @@ alias clock='plan9_clock'
 alias clamscan='clamscan -vrz --bell --leave-temps --remove=yes'
 alias dfc='dfc -d'
 
-# alias ll='ls --all --human-readable --literal'
-alias ll='9 ls -Q'
+# alias ll='ls --all --human-readable --literal --hyperlink=auto --color=auto'
+# alias ll='9 ls -Q'
+alias ll="dir --almost-all --escape -C --color=auto"
 
 # access time
-alias lt='9 ls -Qtu'
+#alias lt='9 ls -Qtu'
+alias lt="dir --all -t -l -1 --color"
 
 # creation time
-alias ltc='ls --all --human-readable --literal --time=ctime'
+alias ltc='ls -l --all --human-readable --literal --time=ctime'
 
 # modified time
 alias ltm='9 ls -Qt'
@@ -67,17 +73,29 @@ alias mu='ncmpcpp'
 alias mui='ncmpcpp-ueberzug'
 alias mu-up='mpc update'
 alias tar-gz='tar -czvf' #tar czvf mydirectory.tgz mydirectory
-alias all-img='find ./ -name "*.jpg" -or -name "*.png" -type f | sort -R | sxiv -ptbf -'
-alias rand-img='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" \) | shuf | head -1 | sxiv -p -'
-alias rand-img-list='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" \) | shuf | sxiv -p -'
+alias all-img='find ./ \( -iname "*.jpg" -or -iname "*.png" -or -iname "*.gif" \) -type f | sort -R | nsxiv -aptbf -'
+alias rand-img='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" \) | shuf | head -1 | nsxiv -ap -'
+alias rand-img-list='find ./ -path ./@eaDir -prune -o \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" \) | shuf | nsxiv -ap -'
 alias rand-vid='mpv "$(find ./ -path ./@eaDir -prune -o \( -name "*.mp4" -o -name "*.mkv" -o -name "*.webm" \) -type f | shuf | head -1 )"'
 alias rand-vid-list='find ./ \( -name "*.mp4" -or -name "*.webm" -or -name "*.mkv" \) -type f | shuf | mpv --loop-file=no --loop-playlist --playlist=-'
-alias sxiv='sxiv -p'
+alias play='mpv --hwdec=auto --loop=no --playlist=-'
+alias audio='mpv --loop=no --vo=null --hwdec=auto --no-video --term-osd-bar --no-resume-playback --playlist=-'
+alias sxiv='nsxiv -ap'
 alias iftop='sudo iftop -i wlan0'
 alias em='sw emacsclient -c'
 alias tm='emacsclient -t'
 alias 9term='9term rc'
 alias acme2='acme-start.sh'
+alias blkrm="xe -I{} rm \"{}\""
+alias dhcp='doas dhclient -r && doas dhclient -d'
+alias vir="qemu-system-x86_64 -m 1G -smp 2 -enable-kvm -hda /home/ken_nc/Documents/programming/C/cse13s/cse13s.qcow2 -nic user,hostfwd=tcp::10022-:22"
+alias ssh13="ssh ken_nc@localhost -p 10022"
+alias em13='em /ssh:localhost#10022:'
+alias matlab="octave-cli"
+alias seer='seergdb'
+alias digital="sw java -jar /home/ken_nc/Documents/programming/digital_electronics/Digital/Digital.jar"
+alias run_c='cat | gcc -o test -x c - ; ./test; rm ./test'
+alias rm='rm -i'
 
 _checkexec() {
 	command -v "$1" > /dev/null
@@ -116,7 +134,7 @@ if _checkexec git; then
 	export GIT_EDITOR="$EDITOR"
 
 	# add, commit
-	alias gadd='git add -v'
+	alias gadd='git-add'
 	alias gaddp='git add --patch'
 	alias gaddi='git add --interactive'
 	alias gall='git add -Av'
@@ -197,4 +215,8 @@ man() {
 	fi
     env MANWIDTH=$width \
     man "$@"
+}
+
+spell() {
+    echo "$1" | aspell -l en_EN -a
 }

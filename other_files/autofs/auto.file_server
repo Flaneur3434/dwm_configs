@@ -1,0 +1,1 @@
+nfs -fstype=nfs,rsize=12288,wsize=12288,noatime,nodev,auto,noexec,intr,soft,vers=3 nfs.obsd.net:/mnt/sd4
